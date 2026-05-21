@@ -539,11 +539,11 @@
     <li><a href="#sec-1">Balance</a></li>
     <li><a href="#sec-2">Markets</a></li>
     <li><a href="#sec-3">Influence</a></li>
-    <li><a href="#sec-4">power — The Conserved Quantity</a></li>
+    <li><a href="#sec-4">Power — The Conserved Quantity</a></li>
     <li><a href="#sec-5">Governance</a></li>
     <li><a href="#sec-6">The Mechanics in Motion — A Worked Example</a></li>
     <li><a href="#sec-7">Extended Simulation — The Infrastructure Bill Market</a></li>
-    <li><a href="#sec-8">Conservation of power — Formal Proof</a></li>
+    <li><a href="#sec-8">Conservation of Power — Formal Proof</a></li>
     <li><a href="#sec-9">Summary</a></li>
   </ol>
 </div>
@@ -642,16 +642,16 @@ $$I_t^{\text{taker}} = \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
 <p>Total influence is the sum across all active markets in which a person participates. Influence is <strong>dynamic</strong> — it fluctuates as others take positions and shift the implied probabilities. A taker whose outcome becomes more probable sees their influence rise. A taker on a less favored outcome sees it fall. This fluctuation is not noise. It is the continuous repricing of committed belief by the market, and it begins the moment a position is acquired — not before.</p>
 
 <!-- Section IV -->
-<h2 id="sec-4"><span class="roman">IV</span>power — The Conserved Quantity</h2>
+<h2 id="sec-4"><span class="roman">IV</span>Power — The Conserved Quantity</h2>
 
-<p>The most fundamental law in Probabilize is the conservation of <strong>power</strong>:</p>
+<p>The most fundamental law in Probabilize is the conservation of <strong>Power</strong>:</p>
 
 <div class="axiom">
   <div class="axiom-label">Conservation Law</div>
   $$R = B + I$$
 </div>
 
-<p>power is the sum of balance and influence. To state the conservation law with full precision requires a careful taxonomy of the three operations — because they differ not only in their economic content but in their scope, their effect on individual power, and their relationship to each participant's history.</p>
+<p>Power is the sum of balance and influence. To state the conservation law with full precision requires a careful taxonomy of the three operations — because they differ not only in their economic content but in their scope, their effect on individual power, and their relationship to each participant's history.</p>
 
 <p><strong>Make</strong> is personal in both scope and effect. Only the maker is involved. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
 
@@ -823,7 +823,7 @@ $$B_C \leftarrow 0.7877 + 0.4000 = \mathbf{1.1877}$$
 
 $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 
-<h3>power Conservation Ledger</h3>
+<h3>Power Conservation Ledger</h3>
 
 <div class="ledger-wrap">
 <table>
@@ -853,7 +853,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </div>
 
 <div class="pullquote">
-  power flows toward those whose beliefs are confirmed by subsequent market activity — and it flows entirely through Take.
+  Power flows toward those whose beliefs are confirmed by subsequent market activity — and it flows entirely through Take.
 </div>
 
 <div class="ornament">◆ ◆ ◆</div>
@@ -1178,7 +1178,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <div class="ornament">◆ ◆ ◆</div>
 
 <!-- Section VIII -->
-<h2 id="sec-8"><span class="roman">VIII</span>Conservation of power — Formal Proof</h2>
+<h2 id="sec-8"><span class="roman">VIII</span>Conservation of Power — Formal Proof</h2>
 
 <p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that conservation holds for every possible execution of every possible operation, precisely characterizing each operation's individual and systemic effects, and giving a rigorous account of the temporal boundary that governs each taker's exposure.</p>
 
@@ -1282,7 +1282,7 @@ $$\sum_i \Delta R_i = 0 \quad \checkmark$$
 
 <h3>Constitutional Interpretation</h3>
 
-<p>power conservation is what makes Probabilize a <strong>closed epistemic economy</strong>. No authority can inflate credibility. No participant can conjure influence from nothing. Every unit of influence held in a market was funded by a corresponding unit of balance — ultimately traceable to the \(B = 1\) endowment every citizen receives at the beginning.</p>
+<p>Power conservation is what makes Probabilize a <strong>closed epistemic economy</strong>. No authority can inflate credibility. No participant can conjure influence from nothing. Every unit of influence held in a market was funded by a corresponding unit of balance — ultimately traceable to the \(B = 1\) endowment every citizen receives at the beginning.</p>
 
 <div class="pullquote">
   <strong>Truth, in Probabilize, is scarce. And scarcity is enforced by this law.</strong>
@@ -1305,7 +1305,7 @@ $$\sum_i \Delta R_i = 0 \quad \checkmark$$
     <tr><td><strong>Take</strong></td><td>Buy a position; the only operation that redistributes power between participants; exposure begins at entry; price depends on current market state</td></tr>
     <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — settlement at current prices; \(I_{\text{tot}}\) reaches zero as consequence of individual conservation</td></tr>
     <tr><td><strong>Influence</strong></td><td>Value of your deployed capital at current market prices</td></tr>
-    <tr><td><strong>power</strong></td><td>\(B + I\) — conserved system-wide; redistributed among individuals only by Take; conserved individually by Make and Unmake</td></tr>
+    <tr><td><strong>Power</strong></td><td>\(B + I\) — conserved system-wide; redistributed among individuals only by Take; conserved individually by Make and Unmake</td></tr>
     <tr><td><strong>Governance</strong></td><td>Decisions sampled from market-implied probabilities, weighted by credibility</td></tr>
   </tbody>
 </table>

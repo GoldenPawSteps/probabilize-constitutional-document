@@ -617,7 +617,7 @@ $$B_m \leftarrow B_m + C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}
 $$B_t \leftarrow B_t + \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
 
 <div class="pullquote">
-  <strong>Unmake is settlement at current prices, not reimbursement at cost.</strong> What each participant receives is not what they originally paid. The operation converts each participant's influence to balance individually and simultaneously, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant, \(\Delta B_i = +I_i\) and \(\Delta I_i = -I_i\), so \(\Delta R_i = 0\) exactly. The total influence across the market reaches zero as a consequence of these individual conversions — because no participant retains any influence in a closed market, and no influence is left over. This is not retirement or destruction; it is the residue of perfect individual conservation applied simultaneously to all.
+  <strong>Unmake is settlement at current prices, not reimbursement at cost.</strong> What each participant receives is not what they originally paid. The operation converts each participant's influence to balance individually and simultaneously, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant, \(\Delta B_i = +I_i\) and \(\Delta I_i = -I_i\), so \(\Delta P_i = 0\) exactly. The total influence across the market reaches zero as a consequence of these individual conversions — because no participant retains any influence in a closed market, and no influence is left over. This is not retirement or destruction; it is the residue of perfect individual conservation applied simultaneously to all.
 </div>
 
 <p>For a taker who acquired position \(\mathbf{q}_t\) at market state \(\mathbf{q}_{\text{old}}\), paying \(\Delta C = C(\mathbf{q}_{\text{new}}) - C(\mathbf{q}_{\text{old}})\), the discrepancy between payment and receipt decomposes precisely along temporal lines: it is zero for all market activity before the taker's entry (because they held no position), generated partially at their own Take, and completed by every subsequent trade that repriced their position. Unmake does not create this discrepancy, correct it, or distribute it between participants. It crystallizes it, converting whatever the final tally happens to be from influence into balance.</p>
@@ -648,22 +648,22 @@ $$I_t^{\text{taker}} = \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
 
 <div class="axiom">
   <div class="axiom-label">Conservation Law</div>
-  $$R = B + I$$
+  $$P = B + I$$
 </div>
 
 <p>Power is the sum of balance and influence. To state the conservation law with full precision requires a careful taxonomy of the three operations — because they differ not only in their economic content but in their scope, their effect on individual power, and their relationship to each participant's history.</p>
 
 <p><strong>Make</strong> is personal in both scope and effect. Only the maker is involved. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
 
-$$\Delta R_m = 0 \quad \text{(maker only; others untouched)}$$
+$$\Delta P_m = 0 \quad \text{(maker only; others untouched)}$$
 
-<p><strong>Unmake</strong> is social in scope but personal in effect. The maker initiates it unilaterally, but it converts the influence of every participant simultaneously — each individually, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta R_i = 0\). No power moves between participants. The total influence across the market reaches zero as a consequence of these individual conversions — not as an independent event, but as what remains when every participant's influence has been exactly converted to balance and nothing is left to hold.</p>
+<p><strong>Unmake</strong> is social in scope but personal in effect. The maker initiates it unilaterally, but it converts the influence of every participant simultaneously — each individually, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\). No power moves between participants. The total influence across the market reaches zero as a consequence of these individual conversions — not as an independent event, but as what remains when every participant's influence has been exactly converted to balance and nothing is left to hold.</p>
 
 <p>This personal character of Unmake has a precise temporal basis. Before a taker enters the market, their position is \(\mathbf{q}_t = \mathbf{0}\). Every Take that occurred before their entry shifted \(\nabla C\) — but applied to a zero position, all such shifts leave them completely unaffected. Exposure begins at the moment they commit capital and ends at Unmake. The market's prior history is constitutionally irrelevant to their settlement.</p>
 
 <p><strong>Take</strong> is social in both scope and effect. A trade reprices the holdings of every participant in the market simultaneously. Individual powers shift. Their sum does not.</p>
 
-$$\Delta R_i \neq 0 \text{ in general}, \quad \text{but} \quad \sum_i \Delta R_i = 0 \quad \text{always}$$
+$$\Delta P_i \neq 0 \text{ in general}, \quad \text{but} \quad \sum_i \Delta P_i = 0 \quad \text{always}$$
 
 <p>The lifecycle of a position makes this concrete:</p>
 
@@ -672,7 +672,7 @@ $$\underbrace{\text{Pay } \Delta C}_{\text{Take: balance decreases}} \;\longrigh
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Operation</th><th>Scope</th><th>Individual \(\Delta R_i\)</th><th>System \(\Delta R\)</th><th>Mechanism</th></tr>
+    <tr><th>Operation</th><th>Scope</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr>
   </thead>
   <tbody>
     <tr><td><strong>Make</strong></td><td>Personal</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Personal \(B \to I\) conversion</td></tr>
@@ -684,7 +684,7 @@ $$\underbrace{\text{Pay } \Delta C}_{\text{Take: balance decreases}} \;\longrigh
 
 <p>Take is the only operation where power <strong>crosses between participants</strong>. Make creates the arena. Unmake dissolves it — converting every participant's influence individually to balance, with the total reaching zero as a consequence of that individual perfection. Take is where the actual epistemic and economic contest occurs.</p>
 
-<p><strong>Total power is neither created nor destroyed.</strong> The total in the system at any moment equals the total number of citizens — because each person begins with \(R = 1\) and no operation violates conservation at the system level. This is the <strong>constitutional guarantee</strong> that Probabilize is not an engine of inflation or extraction. No authority can conjure credibility. No participant can acquire influence without surrendering an equal quantity of balance. All value that enters a market must eventually leave it.</p>
+<p><strong>Total power is neither created nor destroyed.</strong> The total in the system at any moment equals the total number of citizens — because each person begins with \(P = 1\) and no operation violates conservation at the system level. This is the <strong>constitutional guarantee</strong> that Probabilize is not an engine of inflation or extraction. No authority can conjure credibility. No participant can acquire influence without surrendering an equal quantity of balance. All value that enters a market must eventually leave it.</p>
 
 <!-- Section V -->
 <h2 id="sec-5"><span class="roman">V</span>Governance</h2>
@@ -746,7 +746,7 @@ $$B_A \leftarrow 1.0000 - 0.4581 = \mathbf{0.5419}$$
 
 $$C(0,0) = 0.4581 + 0.5 \cdot \ln\!\left(0.6 \cdot e^0 + 0.4 \cdot e^0\right) = 0.4581 + 0.5 \cdot \ln(1) = \mathbf{0.4581}$$
 
-<p>Make is personal in both scope and effect. Alice pays \(L\) from balance and gains \(L\) in influence: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta R_A = 0\). Bob and Carol do not exist within this operation.</p>
+<p>Make is personal in both scope and effect. Alice pays \(L\) from balance and gains \(L\) in influence: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta P_A = 0\). Bob and Carol do not exist within this operation.</p>
 
 <div class="phase">
   <div class="phase-tag">Step 2</div>
@@ -785,7 +785,7 @@ $$B_B \leftarrow 1.0000 - 0.7877 = \mathbf{0.2123}$$
 $$\pi_1 = \frac{0.6 \cdot e^2}{4.8335} = \frac{4.4335}{4.8335} = \mathbf{0.9173} \quad (91.73\%)$$
 $$\pi_2 = \frac{0.4}{4.8335} = \mathbf{0.0827} \quad (8.27\%)$$
 
-<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. Take is social in scope and effect: the gradient shift reprices Alice's maker position downward, transferring power to Bob without Alice transacting. Bob paid \(0.7877\); his position is currently worth \(\nabla C(1,0) \cdot (1,0) = 0.9173\). His own-Take power drift is \(\Delta R_B^{\text{own}} = -0.7877 + 0.9173 = +0.1296\), drawn from Alice, whose maker influence has fallen accordingly.</p>
+<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. Take is social in scope and effect: the gradient shift reprices Alice's maker position downward, transferring power to Bob without Alice transacting. Bob paid \(0.7877\); his position is currently worth \(\nabla C(1,0) \cdot (1,0) = 0.9173\). His own-Take power drift is \(\Delta P_B^{\text{own}} = -0.7877 + 0.9173 = +0.1296\), drawn from Alice, whose maker influence has fallen accordingly.</p>
 
 <div class="phase">
   <div class="phase-tag">Step 3</div>
@@ -798,7 +798,7 @@ $$C(1,1) = 0.4581 + 0.5 \cdot \ln\!\left(e^2 \cdot (0.6 + 0.4)\right) = 0.4581 +
 
 <p><strong>Carol's trade cost:</strong> \(\Delta C_C = 1.4581 - 1.2458 = \mathbf{0.2123}\)</p>
 
-<p>Carol spends only \(0.2123\) to acquire 1 unit of \(\omega_2\) — the same quantity Bob acquired of \(\omega_1\) for \(0.7877\). Carol entered at state \((1,0)\) — not at \((0,0)\). The market's prior history, including Bob's distortion to 91.73%, is not her inheritance. She paid \(0.2123\) for a position immediately worth \(\nabla C(1,1) \cdot (0,1) = 0.4000\): her own-Take drift is \(\Delta R_C^{\text{own}} = -0.2123 + 0.4000 = +0.1877\), sourced from Bob, whose position fell from \(0.9173\) to \(0.6000\) as the gradient was restored.</p>
+<p>Carol spends only \(0.2123\) to acquire 1 unit of \(\omega_2\) — the same quantity Bob acquired of \(\omega_1\) for \(0.7877\). Carol entered at state \((1,0)\) — not at \((0,0)\). The market's prior history, including Bob's distortion to 91.73%, is not her inheritance. She paid \(0.2123\) for a position immediately worth \(\nabla C(1,1) \cdot (0,1) = 0.4000\): her own-Take drift is \(\Delta P_C^{\text{own}} = -0.2123 + 0.4000 = +0.1877\), sourced from Bob, whose position fell from \(0.9173\) to \(0.6000\) as the gradient was restored.</p>
 
 $$B_C \leftarrow 1.0000 - 0.2123 = \mathbf{0.7877}$$
 
@@ -813,7 +813,7 @@ $$\pi_1 = \frac{0.6 \cdot e^2}{e^2} = \mathbf{0.6000}, \qquad \pi_2 = \frac{0.4 
   <h3>Alice Unmakes the Market</h3>
 </div>
 
-<p>Alice closes the market at final state \(\mathbf{q}_m = (1,1)\), \(\nabla C = (0.6000,\ 0.4000)\). Each participant's influence is converted individually to balance at this uniform rate: \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta R_i = 0\) for every \(i\).</p>
+<p>Alice closes the market at final state \(\mathbf{q}_m = (1,1)\), \(\nabla C = (0.6000,\ 0.4000)\). Each participant's influence is converted individually to balance at this uniform rate: \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\) for every \(i\).</p>
 
 $$B_A \leftarrow 0.5419 + \left[1.4581 - (0.6 + 0.4)\right] = 0.5419 + 0.4581 = \mathbf{1.0000}$$
 $$B_B \leftarrow 0.2123 + 0.6000 = \mathbf{0.8123}$$
@@ -827,7 +827,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 
 <div class="ledger-wrap">
 <table>
-  <thead><tr><th>Event</th><th>\(R_{\text{Alice}}\)</th><th>\(R_{\text{Bob}}\)</th><th>\(R_{\text{Carol}}\)</th><th>Total \(R\)</th></tr></thead>
+  <thead><tr><th>Event</th><th>\(P_{\text{Alice}}\)</th><th>\(P_{\text{Bob}}\)</th><th>\(P_{\text{Carol}}\)</th><th>Total \(P\)</th></tr></thead>
   <tbody>
     <tr><td>Initial</td><td class="num">1.0000</td><td class="num">1.0000</td><td class="num">1.0000</td><td class="num check"><strong>3.0000</strong></td></tr>
     <tr><td>After Make</td><td class="num">1.0000</td><td class="num">1.0000</td><td class="num">1.0000</td><td class="num check"><strong>3.0000</strong></td></tr>
@@ -843,7 +843,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Agent</th><th>Paid</th><th>Received</th><th>Net \(\Delta R\)</th><th>Mechanism</th></tr></thead>
+  <thead><tr><th>Agent</th><th>Paid</th><th>Received</th><th>Net \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td>Alice</td><td class="num">0.4581</td><td class="num">0.4581</td><td class="num zero"><strong>0</strong></td><td>Market symmetric at close</td></tr>
     <tr><td>Bob</td><td class="num">0.7877</td><td class="num">0.6000</td><td class="num neg"><strong>−0.1877</strong></td><td>Paid more than current value: price-impact cost settled at Takes</td></tr>
@@ -881,7 +881,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </table>
 </div>
 
-<p><strong>Total initial power:</strong> \(R_{\text{total}} = 4.0000\). This quantity is constitutionally conserved. Every step below must return to it.</p>
+<p><strong>Total initial power:</strong> \(P_{\text{total}} = 4.0000\). This quantity is constitutionally conserved. Every step below must return to it.</p>
 
 <div class="phase">
   <div class="phase-tag">Phase I</div>
@@ -896,7 +896,7 @@ $$B_A \leftarrow 1.0000 - 0.9163 = \mathbf{0.0837}$$
 
 <p>The market initializes at \(\mathbf{q}_m = (0, 0)\), confirming \(C(\mathbf{0}) = L = 0.9163\) and \(\nabla C(\mathbf{0}) = (0.40,\ 0.60)\) — the prior, exactly, before any trading activity.</p>
 
-<p>Make is personal in both scope and effect: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta R_A = 0\). Bob, Carol, and Dave do not exist within this operation.</p>
+<p>Make is personal in both scope and effect: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta P_A = 0\). Bob, Carol, and Dave do not exist within this operation.</p>
 
 <div class="phase">
   <div class="phase-tag">Phase II</div>
@@ -912,11 +912,11 @@ $$\Delta C_{\text{Bob}} = \mathbf{0.5231}, \qquad B_B \leftarrow 1.0000 - 0.5231
 
 $$\pi_1 = \mathbf{0.6444}, \qquad \pi_2 = \mathbf{0.3556}$$
 
-<p>Bob paid \(0.5231\); his position is immediately worth \(0.6444\). His own-Take power drift: \(\Delta R_B^{\text{own}} = -0.5231 + 0.6444 = +0.1213\), sourced from Alice's repriced maker position. Alice's maker influence is now \(1.4394 - 0.6444 = 0.7950\), and her power has fallen to \(0.0837 + 0.7950 = 0.8787\).</p>
+<p>Bob paid \(0.5231\); his position is immediately worth \(0.6444\). His own-Take power drift: \(\Delta P_B^{\text{own}} = -0.5231 + 0.6444 = +0.1213\), sourced from Alice's repriced maker position. Alice's maker influence is now \(1.4394 - 0.6444 = 0.7950\), and her power has fallen to \(0.0837 + 0.7950 = 0.8787\).</p>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(R\)</th></tr></thead>
+  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(P\)</th></tr></thead>
   <tbody>
     <tr><td>Alice</td><td class="num">0.0837</td><td class="num">0.7950</td><td class="num"><strong>0.8787</strong></td></tr>
     <tr><td>Bob</td><td class="num">0.4769</td><td class="num">0.6444</td><td class="num"><strong>1.1213</strong></td></tr>
@@ -927,7 +927,7 @@ $$\pi_1 = \mathbf{0.6444}, \qquad \pi_2 = \mathbf{0.3556}$$
 </table>
 </div>
 
-$$\Delta R_A = -0.1213, \qquad \Delta R_B = +0.1213, \qquad \Delta R_A + \Delta R_B = 0 \checkmark$$
+$$\Delta P_A = -0.1213, \qquad \Delta P_B = +0.1213, \qquad \Delta P_A + \Delta P_B = 0 \checkmark$$
 
 <div class="phase">
   <div class="phase-tag">Phase III</div>
@@ -945,11 +945,11 @@ $$\Delta C_{\text{Carol}} = \mathbf{0.4769}, \qquad B_C \leftarrow 1.0000 - 0.47
 
 $$\pi_1 = \mathbf{0.4000}, \qquad \pi_2 = \mathbf{0.6000}$$
 
-<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid \(0.4769\) for a position immediately worth \(0.6000\): \(\Delta R_C^{\text{own}} = -0.4769 + 0.6000 = +0.1231\), sourced from Bob, whose position fell from \(0.6444\) to \(0.4000\). The market returns exactly to the prior, and Alice's maker influence is restored to \(1.9163 - 1.0000 = 0.9163 = L\), her power recovering fully to \(1.0000\).</p>
+<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid \(0.4769\) for a position immediately worth \(0.6000\): \(\Delta P_C^{\text{own}} = -0.4769 + 0.6000 = +0.1231\), sourced from Bob, whose position fell from \(0.6444\) to \(0.4000\). The market returns exactly to the prior, and Alice's maker influence is restored to \(1.9163 - 1.0000 = 0.9163 = L\), her power recovering fully to \(1.0000\).</p>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(R\)</th></tr></thead>
+  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(P\)</th></tr></thead>
   <tbody>
     <tr><td>Alice</td><td class="num">0.0837</td><td class="num">0.9163</td><td class="num"><strong>1.0000</strong></td></tr>
     <tr><td>Bob</td><td class="num">0.4769</td><td class="num">0.4000</td><td class="num"><strong>0.8769</strong></td></tr>
@@ -976,7 +976,7 @@ $$B_{\text{Dave}} = 1.0000 \not\geq 2.1559 \quad \text{REJECTED}$$
 
 <p class="reject" style="text-align:center; font-size:1.05rem; letter-spacing: 0.1em;">⊘ TRANSACTION REJECTED ⊘</p>
 
-<p>Dave's balance is insufficient. He cannot acquire this much influence without the economic capacity to back it. The system enforces this hard constraint without appeal, exception, or override. Dave's opinion exists; it simply carries zero market power. <strong>Belief in Probabilize is not expressed — it is purchased.</strong> Dave's state is unchanged: \(R_D = 1.0000\).</p>
+<p>Dave's balance is insufficient. He cannot acquire this much influence without the economic capacity to back it. The system enforces this hard constraint without appeal, exception, or override. Dave's opinion exists; it simply carries zero market power. <strong>Belief in Probabilize is not expressed — it is purchased.</strong> Dave's state is unchanged: \(P_D = 1.0000\).</p>
 
 <h3>Path-Dependent Pricing</h3>
 
@@ -1036,7 +1036,7 @@ $$I_{\text{Carol}} = 0.6000 \quad (31.3\%)$$
   <h3>Alice Unmakes the Market</h3>
 </div>
 
-<p>Alice closes the market at final state \(\mathbf{q}_m = (1, 1)\), \(\nabla C = (0.40,\ 0.60)\), \(C = 1.9163\). Each participant's influence is converted individually to balance: \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta R_i = 0\).</p>
+<p>Alice closes the market at final state \(\mathbf{q}_m = (1, 1)\), \(\nabla C = (0.40,\ 0.60)\), \(C = 1.9163\). Each participant's influence is converted individually to balance: \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\).</p>
 
 $$B_A \leftarrow 0.0837 + \left[1.9163 - (0.40 + 0.60)\right] = 0.0837 + 0.9163 = \mathbf{1.0000}$$
 $$B_B \leftarrow 0.4769 + 0.4000 = \mathbf{0.8769}$$
@@ -1051,11 +1051,11 @@ $$B_C \leftarrow 0.5231 + 0.6000 = \mathbf{1.1231}$$
   <thead>
     <tr>
       <th>Event</th>
-      <th>\(B_A\)</th><th>\(I_A\)</th><th>\(R_A\)</th>
-      <th>\(B_B\)</th><th>\(I_B\)</th><th>\(R_B\)</th>
-      <th>\(B_C\)</th><th>\(I_C\)</th><th>\(R_C\)</th>
-      <th>\(B_D\)</th><th>\(I_D\)</th><th>\(R_D\)</th>
-      <th>\(B_{\text{tot}}\)</th><th>\(I_{\text{tot}}\)</th><th>\(R_{\text{tot}}\)</th>
+      <th>\(B_A\)</th><th>\(I_A\)</th><th>\(P_A\)</th>
+      <th>\(B_B\)</th><th>\(I_B\)</th><th>\(P_B\)</th>
+      <th>\(B_C\)</th><th>\(I_C\)</th><th>\(P_C\)</th>
+      <th>\(B_D\)</th><th>\(I_D\)</th><th>\(P_D\)</th>
+      <th>\(B_{\text{tot}}\)</th><th>\(I_{\text{tot}}\)</th><th>\(P_{\text{tot}}\)</th>
     </tr>
   </thead>
   <tbody>
@@ -1076,13 +1076,13 @@ $$B_C \leftarrow 0.5231 + 0.6000 = \mathbf{1.1231}$$
 
 <p><strong>The Unmake row is the only row where every participant holds zero influence.</strong> This is not a separate outcome produced by Unmake — it is the consequence of Unmake converting each participant's influence to balance exactly. No participant retains influence in a closed market; therefore none remains. The zero is a residue of individual conservation, not an independent event.</p>
 
-<p><strong>The \(B_{\text{tot}}\) column is the mirror image of \(I_{\text{tot}}\).</strong> As influence grows, balance shrinks by exactly the same amount. As influence returns to zero after Unmake, balance recovers it entirely. The two columns are not independent — they are a single conserved quantity partitioned between two forms. \(R_{\text{tot}} = B_{\text{tot}} + I_{\text{tot}} = 4.0000\) at every row, without exception.</p>
+<p><strong>The \(B_{\text{tot}}\) column is the mirror image of \(I_{\text{tot}}\).</strong> As influence grows, balance shrinks by exactly the same amount. As influence returns to zero after Unmake, balance recovers it entirely. The two columns are not independent — they are a single conserved quantity partitioned between two forms. \(P_{\text{tot}} = B_{\text{tot}} + I_{\text{tot}} = 4.0000\) at every row, without exception.</p>
 
 <h3>Taker Settlement Decomposition</h3>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Taker</th><th>Entry state</th><th>Paid \(\Delta C\)</th><th>\(\Delta R^{\text{own}}\)</th><th>\(\Delta R^{\text{subsequent}}\)</th><th>Total \(\Delta R\)</th><th>Received</th></tr></thead>
+  <thead><tr><th>Taker</th><th>Entry state</th><th>Paid \(\Delta C\)</th><th>\(\Delta P^{\text{own}}\)</th><th>\(\Delta P^{\text{subsequent}}\)</th><th>Total \(\Delta P\)</th><th>Received</th></tr></thead>
   <tbody>
     <tr><td>Bob</td><td class="num">\((0,0)\)</td><td class="num">0.5231</td><td class="num pos">+0.1213</td><td class="num neg">−0.2444</td><td class="num neg">−0.1231</td><td class="num">0.4000</td></tr>
     <tr><td>Carol</td><td class="num">\((1,0)\)</td><td class="num">0.4769</td><td class="num pos">+0.1231</td><td class="num zero">0</td><td class="num pos">+0.1231</td><td class="num">0.6000</td></tr>
@@ -1106,11 +1106,11 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
   <thead>
     <tr>
       <th>Event</th>
-      <th>\(B_A\)</th><th>\(I_A\)</th><th>\(R_A\)</th>
-      <th>\(B_B\)</th><th>\(I_B\)</th><th>\(R_B\)</th>
-      <th>\(B_C\)</th><th>\(I_C\)</th><th>\(R_C\)</th>
-      <th>\(B_D\)</th><th>\(I_D\)</th><th>\(R_D\)</th>
-      <th>\(B_{\text{tot}}\)</th><th>\(I_{\text{tot}}\)</th><th>\(R_{\text{tot}}\)</th>
+      <th>\(B_A\)</th><th>\(I_A\)</th><th>\(P_A\)</th>
+      <th>\(B_B\)</th><th>\(I_B\)</th><th>\(P_B\)</th>
+      <th>\(B_C\)</th><th>\(I_C\)</th><th>\(P_C\)</th>
+      <th>\(B_D\)</th><th>\(I_D\)</th><th>\(P_D\)</th>
+      <th>\(B_{\text{tot}}\)</th><th>\(I_{\text{tot}}\)</th><th>\(P_{\text{tot}}\)</th>
     </tr>
   </thead>
   <tbody>
@@ -1123,11 +1123,11 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<p>The same three structural facts hold. The Unmake row is again identical in the \(R\)-columns to the row above it — because Unmake converts each participant's influence individually to balance, and that individual conversion is exact.</p>
+<p>The same three structural facts hold. The Unmake row is again identical in the \(P\)-columns to the row above it — because Unmake converts each participant's influence individually to balance, and that individual conversion is exact.</p>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Taker</th><th>Entry state</th><th>Paid</th><th>\(\Delta R^{\text{own}}\)</th><th>\(\Delta R^{\text{subsequent}}\)</th><th>Total \(\Delta R\)</th><th>Received</th></tr></thead>
+  <thead><tr><th>Taker</th><th>Entry state</th><th>Paid</th><th>\(\Delta P^{\text{own}}\)</th><th>\(\Delta P^{\text{subsequent}}\)</th><th>Total \(\Delta P\)</th><th>Received</th></tr></thead>
   <tbody>
     <tr><td>Bob</td><td class="num">\((0,0)\)</td><td class="num">0.5231</td><td class="num pos">+0.1213</td><td class="num zero">0</td><td class="num pos">+0.1213</td><td class="num">0.6444</td></tr>
   </tbody>
@@ -1138,7 +1138,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Participant</th><th>\(\Delta R\) (full run)</th><th>\(\Delta R\) (early Unmake)</th></tr></thead>
+  <thead><tr><th>Participant</th><th>\(\Delta P\) (full run)</th><th>\(\Delta P\) (early Unmake)</th></tr></thead>
   <tbody>
     <tr><td>Alice</td><td class="num zero">0</td><td class="num neg">−0.1213</td></tr>
     <tr><td>Bob</td><td class="num neg">−0.1231</td><td class="num pos">+0.1213</td></tr>
@@ -1158,15 +1158,15 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <table>
   <thead><tr><th>Property</th><th>Where Observed</th></tr></thead>
   <tbody>
-    <tr><td>Make: personal \(B \to I\) conversion</td><td>Phase I: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta R_A = 0\); others untouched</td></tr>
-    <tr><td>Take: immediately reprices maker's influence</td><td>Phase II: Alice's \(R\) falls from \(1.0000\) to \(0.8787\) without transacting</td></tr>
+    <tr><td>Make: personal \(B \to I\) conversion</td><td>Phase I: \(\Delta B_A = -L\), \(\Delta I_A = +L\), \(\Delta P_A = 0\); others untouched</td></tr>
+    <tr><td>Take: immediately reprices maker's influence</td><td>Phase II: Alice's \(P\) falls from \(1.0000\) to \(0.8787\) without transacting</td></tr>
     <tr><td>\(I_{\text{tot}}\) traces market depth exactly</td><td>Conservation ledgers: \(I_{\text{tot}} = C(\mathbf{q}_m)\) at every row</td></tr>
     <tr><td>\(B_{\text{tot}}\) and \(I_{\text{tot}}\) are mirror images</td><td>Conservation ledgers: their sum is \(4.0000\) at every row</td></tr>
-    <tr><td>Unmake: personal \(I \to B\) conversion for all simultaneously</td><td>Both ledgers: \(\Delta R_i = 0\) for every participant; \(I_{\text{tot}} = 0\) follows as consequence</td></tr>
-    <tr><td>Unmake: \(R\)-column identical to preceding row</td><td>Both ledgers: Unmake converts; it does not redistribute</td></tr>
+    <tr><td>Unmake: personal \(I \to B\) conversion for all simultaneously</td><td>Both ledgers: \(\Delta P_i = 0\) for every participant; \(I_{\text{tot}} = 0\) follows as consequence</td></tr>
+    <tr><td>Unmake: \(P\)-column identical to preceding row</td><td>Both ledgers: Unmake converts; it does not redistribute</td></tr>
     <tr><td>Unmake: settlement at current prices, not reimbursement at cost</td><td>Full run: Bob paid \(0.5231\), received \(0.4000\)</td></tr>
     <tr><td>Taker exposure begins at entry, not market creation</td><td>Phase III: Carol unaffected by Bob's prior distortion to \(64.44\%\)</td></tr>
-    <tr><td>\(\Delta R\) decomposes into own-Take and subsequent-Takes</td><td>Taker settlement decomposition tables above</td></tr>
+    <tr><td>\(\Delta P\) decomposes into own-Take and subsequent-Takes</td><td>Taker settlement decomposition tables above</td></tr>
     <tr><td>Carol's entry necessary for Alice's full recovery</td><td>Lifecycle comparison: without Carol, Alice bears \(-0.1213\) permanently</td></tr>
     <tr><td>Capital-enforced belief</td><td>Phase IV: Dave's trade rejected</td></tr>
     <tr><td>Prior restoration from symmetric trades</td><td>Phase III: \(\nabla C(1,1) = p\) exactly</td></tr>
@@ -1186,7 +1186,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 
 <p>Define total power as:</p>
 
-$$R_{\text{total}} = \sum_{i} B_i + I_{\text{total}}, \qquad I_{\text{total}} = \sum_{\text{markets}} C(\mathbf{q}_m)$$
+$$P_{\text{total}} = \sum_{i} B_i + I_{\text{total}}, \qquad I_{\text{total}} = \sum_{\text{markets}} C(\mathbf{q}_m)$$
 
 <p>This global definition rests on a single structural fact: for any active market, the maker holds influence \(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\), and all takers collectively hold \(\nabla C(\mathbf{q}_m) \cdot \sum_t \mathbf{q}_t\). These sum to \(C(\mathbf{q}_m)\) — exactly the market's cost.</p>
 
@@ -1209,7 +1209,7 @@ $$I_{\text{market}} = \left(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \math
 
 <h3>Operation 1: Make — Personal in Scope and Effect</h3>
 
-$$\Delta B_m = -L, \qquad \Delta I_m = +L, \qquad \Delta R_m = 0$$
+$$\Delta B_m = -L, \qquad \Delta I_m = +L, \qquad \Delta P_m = 0$$
 
 <p>No other participant's balance or influence is affected.</p>
 
@@ -1217,25 +1217,25 @@ $$\Delta B_m = -L, \qquad \Delta I_m = +L, \qquad \Delta R_m = 0$$
 
 <p>Each participant's influence converts individually to balance at the uniform rate \(\nabla C(\mathbf{q}_m)\):</p>
 
-$$\Delta B_m = +[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta I_m = -[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta R_m = 0$$
+$$\Delta B_m = +[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta I_m = -[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta P_m = 0$$
 
-$$\Delta B_t = +\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta I_t = -\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta R_t = 0$$
+$$\Delta B_t = +\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta I_t = -\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta P_t = 0$$
 
-<p>The primary event is \(\Delta R_i = 0\) for every \(i\). The secondary consequence is \(I_{\text{tot}} = 0\): no participant retains influence in a closed market, so none remains. No power crosses between participants. The corollary confirms that total balance gained equals \(C(\mathbf{q}_m)\) and total influence lost equals \(C(\mathbf{q}_m)\) — a global check that follows from individual conservation, not a separate mechanism.</p>
+<p>The primary event is \(\Delta P_i = 0\) for every \(i\). The secondary consequence is \(I_{\text{tot}} = 0\): no participant retains influence in a closed market, so none remains. No power crosses between participants. The corollary confirms that total balance gained equals \(C(\mathbf{q}_m)\) and total influence lost equals \(C(\mathbf{q}_m)\) — a global check that follows from individual conservation, not a separate mechanism.</p>
 
 <p><strong>The temporal decomposition of the settlement discrepancy.</strong> For taker \(t\) who acquired position \(\mathbf{q}_t\) at market state \(\mathbf{q}_{\text{old}} \to \mathbf{q}_{\text{new}} = \mathbf{q}_{\text{old}} + \mathbf{q}_t\), paying \(\Delta C = C(\mathbf{q}_{\text{new}}) - C(\mathbf{q}_{\text{old}})\), the discrepancy between payment and receipt decomposes as:</p>
 
-$$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C = \underbrace{-\Delta C + \nabla C(\mathbf{q}_{\text{new}}) \cdot \mathbf{q}_t}_{\Delta R_t^{\text{own}}} + \underbrace{\left[\nabla C(\mathbf{q}_m) - \nabla C(\mathbf{q}_{\text{new}})\right] \cdot \mathbf{q}_t}_{\Delta R_t^{\text{subsequent}}}$$
+$$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C = \underbrace{-\Delta C + \nabla C(\mathbf{q}_{\text{new}}) \cdot \mathbf{q}_t}_{\Delta P_t^{\text{own}}} + \underbrace{\left[\nabla C(\mathbf{q}_m) - \nabla C(\mathbf{q}_{\text{new}})\right] \cdot \mathbf{q}_t}_{\Delta P_t^{\text{subsequent}}}$$
 
 <p><strong>Why past takes are excluded.</strong> Before taker \(t\) enters, their position is \(\mathbf{q}_t = \mathbf{0}\). For every Take that occurred prior to their entry:</p>
 
-$$\Delta R_t^{\text{past}} = \left[\nabla C(\mathbf{q}'') - \nabla C(\mathbf{q}')\right] \cdot \mathbf{0} = 0$$
+$$\Delta P_t^{\text{past}} = \left[\nabla C(\mathbf{q}'') - \nabla C(\mathbf{q}')\right] \cdot \mathbf{0} = 0$$
 
 <p>A zero position is invisible to repricing. This defines the precise <strong>temporal boundary</strong>:</p>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Period</th><th>Market moves</th><th>Effect on \(\Delta R_t\)</th></tr></thead>
+  <thead><tr><th>Period</th><th>Market moves</th><th>Effect on \(\Delta P_t\)</th></tr></thead>
   <tbody>
     <tr><td>Before entry</td><td class="num">\(\mathbf{q}_{\text{initial}} \to \mathbf{q}_{\text{old}}\)</td><td class="num zero">\(= 0\) (no position held)</td></tr>
     <tr><td>Own Take</td><td class="num">\(\mathbf{q}_{\text{old}} \to \mathbf{q}_{\text{new}}\)</td><td class="num">\(= -\Delta C + \nabla C(\mathbf{q}_{\text{new}}) \cdot \mathbf{q}_t\)</td></tr>
@@ -1251,13 +1251,13 @@ $$\Delta R_t^{\text{past}} = \left[\nabla C(\mathbf{q}'') - \nabla C(\mathbf{q}'
 <p>Let \(\mathbf{q} \to \mathbf{q}' = \mathbf{q} + \Delta\mathbf{q}\).</p>
 
 <p><strong>The transacting taker</strong> (prior position \(\mathbf{q}_t\)):</p>
-$$\Delta R_t = -(C(\mathbf{q}') - C(\mathbf{q})) + \nabla C(\mathbf{q}') \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}_t \neq 0 \text{ in general}$$
+$$\Delta P_t = -(C(\mathbf{q}') - C(\mathbf{q})) + \nabla C(\mathbf{q}') \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}_t \neq 0 \text{ in general}$$
 
 <p><strong>The maker</strong> (balance unchanged):</p>
-$$\Delta R_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]$$
+$$\Delta P_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]$$
 
 <p><strong>All existing takers</strong> \(s \neq t\) (positions and balances unchanged):</p>
-$$\Delta R_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s$$
+$$\Delta P_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s$$
 
 <p>The source of redistribution is the strict convexity of \(C\). For any non-trivial trade:</p>
 
@@ -1265,13 +1265,13 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
 
 <p>This wedge — intrinsic to the LMSR, impossible to design away — is simultaneously what generates redistribution between participants and what produces path-dependent pricing: the same nonlinearity that causes power to flow at Take causes the second unit of any outcome to cost more than the first. Nevertheless:</p>
 
-$$\sum_i \Delta R_i = 0 \quad \checkmark$$
+$$\sum_i \Delta P_i = 0 \quad \checkmark$$
 
 <h3>The Complete Taxonomy</h3>
 
 <div class="table-wrap">
 <table>
-  <thead><tr><th>Operation</th><th>Scope</th><th>Individual \(\Delta R_i\)</th><th>System \(\Delta R\)</th><th>Mechanism</th></tr></thead>
+  <thead><tr><th>Operation</th><th>Scope</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td><strong>Make</strong></td><td>Personal</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Personal \(B \to I\) conversion</td></tr>
     <tr><td><strong>Take</strong></td><td>Social</td><td>\(\neq 0\) in general</td><td class="num zero">\(0\)</td><td>Redistribution between participants</td></tr>

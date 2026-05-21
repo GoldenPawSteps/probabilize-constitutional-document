@@ -539,11 +539,11 @@
     <li><a href="#sec-1">Balance</a></li>
     <li><a href="#sec-2">Markets</a></li>
     <li><a href="#sec-3">Influence</a></li>
-    <li><a href="#sec-4">Relevance — The Conserved Quantity</a></li>
+    <li><a href="#sec-4">power — The Conserved Quantity</a></li>
     <li><a href="#sec-5">Governance</a></li>
     <li><a href="#sec-6">The Mechanics in Motion — A Worked Example</a></li>
     <li><a href="#sec-7">Extended Simulation — The Infrastructure Bill Market</a></li>
-    <li><a href="#sec-8">Conservation of Relevance — Formal Proof</a></li>
+    <li><a href="#sec-8">Conservation of power — Formal Proof</a></li>
     <li><a href="#sec-9">Summary</a></li>
   </ol>
 </div>
@@ -623,7 +623,7 @@ $$B_t \leftarrow B_t + \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
 <p>For a taker who acquired position \(\mathbf{q}_t\) at market state \(\mathbf{q}_{\text{old}}\), paying \(\Delta C = C(\mathbf{q}_{\text{new}}) - C(\mathbf{q}_{\text{old}})\), the discrepancy between payment and receipt decomposes precisely along temporal lines: it is zero for all market activity before the taker's entry (because they held no position), generated partially at their own Take, and completed by every subsequent trade that repriced their position. Unmake does not create this discrepancy, correct it, or distribute it between participants. It crystallizes it, converting whatever the final tally happens to be from influence into balance.</p>
 
 <div class="pullquote">
-  A taker's net relevance gain or loss is determined entirely by what happens from the moment they take a position forward — their own trade, and every subsequent trade that reprices their stake. <strong>The market's past is not their inheritance.</strong>
+  A taker's net power gain or loss is determined entirely by what happens from the moment they take a position forward — their own trade, and every subsequent trade that reprices their stake. <strong>The market's past is not their inheritance.</strong>
 </div>
 
 <p>The market is settled and ceases to exist.</p>
@@ -642,26 +642,26 @@ $$I_t^{\text{taker}} = \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
 <p>Total influence is the sum across all active markets in which a person participates. Influence is <strong>dynamic</strong> — it fluctuates as others take positions and shift the implied probabilities. A taker whose outcome becomes more probable sees their influence rise. A taker on a less favored outcome sees it fall. This fluctuation is not noise. It is the continuous repricing of committed belief by the market, and it begins the moment a position is acquired — not before.</p>
 
 <!-- Section IV -->
-<h2 id="sec-4"><span class="roman">IV</span>Relevance — The Conserved Quantity</h2>
+<h2 id="sec-4"><span class="roman">IV</span>power — The Conserved Quantity</h2>
 
-<p>The most fundamental law in Probabilize is the conservation of <strong>Relevance</strong>:</p>
+<p>The most fundamental law in Probabilize is the conservation of <strong>power</strong>:</p>
 
 <div class="axiom">
   <div class="axiom-label">Conservation Law</div>
   $$R = B + I$$
 </div>
 
-<p>Relevance is the sum of balance and influence. To state the conservation law with full precision requires a careful taxonomy of the three operations — because they differ not only in their economic content but in their scope, their effect on individual relevance, and their relationship to each participant's history.</p>
+<p>power is the sum of balance and influence. To state the conservation law with full precision requires a careful taxonomy of the three operations — because they differ not only in their economic content but in their scope, their effect on individual power, and their relationship to each participant's history.</p>
 
 <p><strong>Make</strong> is personal in both scope and effect. Only the maker is involved. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
 
 $$\Delta R_m = 0 \quad \text{(maker only; others untouched)}$$
 
-<p><strong>Unmake</strong> is social in scope but personal in effect. The maker initiates it unilaterally, but it converts the influence of every participant simultaneously — each individually, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta R_i = 0\). No relevance moves between participants. The total influence across the market reaches zero as a consequence of these individual conversions — not as an independent event, but as what remains when every participant's influence has been exactly converted to balance and nothing is left to hold.</p>
+<p><strong>Unmake</strong> is social in scope but personal in effect. The maker initiates it unilaterally, but it converts the influence of every participant simultaneously — each individually, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta R_i = 0\). No power moves between participants. The total influence across the market reaches zero as a consequence of these individual conversions — not as an independent event, but as what remains when every participant's influence has been exactly converted to balance and nothing is left to hold.</p>
 
 <p>This personal character of Unmake has a precise temporal basis. Before a taker enters the market, their position is \(\mathbf{q}_t = \mathbf{0}\). Every Take that occurred before their entry shifted \(\nabla C\) — but applied to a zero position, all such shifts leave them completely unaffected. Exposure begins at the moment they commit capital and ends at Unmake. The market's prior history is constitutionally irrelevant to their settlement.</p>
 
-<p><strong>Take</strong> is social in both scope and effect. A trade reprices the holdings of every participant in the market simultaneously. Individual relevances shift. Their sum does not.</p>
+<p><strong>Take</strong> is social in both scope and effect. A trade reprices the holdings of every participant in the market simultaneously. Individual powers shift. Their sum does not.</p>
 
 $$\Delta R_i \neq 0 \text{ in general}, \quad \text{but} \quad \sum_i \Delta R_i = 0 \quad \text{always}$$
 
@@ -682,9 +682,9 @@ $$\underbrace{\text{Pay } \Delta C}_{\text{Take: balance decreases}} \;\longrigh
 </table>
 </div>
 
-<p>Take is the only operation where relevance <strong>crosses between participants</strong>. Make creates the arena. Unmake dissolves it — converting every participant's influence individually to balance, with the total reaching zero as a consequence of that individual perfection. Take is where the actual epistemic and economic contest occurs.</p>
+<p>Take is the only operation where power <strong>crosses between participants</strong>. Make creates the arena. Unmake dissolves it — converting every participant's influence individually to balance, with the total reaching zero as a consequence of that individual perfection. Take is where the actual epistemic and economic contest occurs.</p>
 
-<p><strong>Total relevance is neither created nor destroyed.</strong> The total in the system at any moment equals the total number of citizens — because each person begins with \(R = 1\) and no operation violates conservation at the system level. This is the <strong>constitutional guarantee</strong> that Probabilize is not an engine of inflation or extraction. No authority can conjure credibility. No participant can acquire influence without surrendering an equal quantity of balance. All value that enters a market must eventually leave it.</p>
+<p><strong>Total power is neither created nor destroyed.</strong> The total in the system at any moment equals the total number of citizens — because each person begins with \(R = 1\) and no operation violates conservation at the system level. This is the <strong>constitutional guarantee</strong> that Probabilize is not an engine of inflation or extraction. No authority can conjure credibility. No participant can acquire influence without surrendering an equal quantity of balance. All value that enters a market must eventually leave it.</p>
 
 <!-- Section V -->
 <h2 id="sec-5"><span class="roman">V</span>Governance</h2>
@@ -706,7 +706,7 @@ $$\underbrace{\text{Pay } \Delta C}_{\text{Take: balance decreases}} \;\longrigh
 <!-- Section VI -->
 <h2 id="sec-6"><span class="roman">VI</span>The Mechanics in Motion — A Worked Example</h2>
 
-<p>Abstract principles require concrete instantiation. What follows is a full worked example — every formula evaluated, every balance tracked, every unit of relevance accounted for — demonstrating that the constitutional guarantees are not aspirational but arithmetically necessary.</p>
+<p>Abstract principles require concrete instantiation. What follows is a full worked example — every formula evaluated, every balance tracked, every unit of power accounted for — demonstrating that the constitutional guarantees are not aspirational but arithmetically necessary.</p>
 
 <h3>The Scenario</h3>
 <p>A binary market is opened on the question: <strong>"Does the proposal pass?"</strong></p>
@@ -725,7 +725,7 @@ $$\underbrace{\text{Pay } \Delta C}_{\text{Take: balance decreases}} \;\longrigh
 </table>
 </div>
 
-<p>Three citizens. Three units of relevance in the system. That total will not change.</p>
+<p>Three citizens. Three units of power in the system. That total will not change.</p>
 
 <div class="phase">
   <div class="phase-tag">Step 1</div>
@@ -785,7 +785,7 @@ $$B_B \leftarrow 1.0000 - 0.7877 = \mathbf{0.2123}$$
 $$\pi_1 = \frac{0.6 \cdot e^2}{4.8335} = \frac{4.4335}{4.8335} = \mathbf{0.9173} \quad (91.73\%)$$
 $$\pi_2 = \frac{0.4}{4.8335} = \mathbf{0.0827} \quad (8.27\%)$$
 
-<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. Take is social in scope and effect: the gradient shift reprices Alice's maker position downward, transferring relevance to Bob without Alice transacting. Bob paid \(0.7877\); his position is currently worth \(\nabla C(1,0) \cdot (1,0) = 0.9173\). His own-Take relevance drift is \(\Delta R_B^{\text{own}} = -0.7877 + 0.9173 = +0.1296\), drawn from Alice, whose maker influence has fallen accordingly.</p>
+<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. Take is social in scope and effect: the gradient shift reprices Alice's maker position downward, transferring power to Bob without Alice transacting. Bob paid \(0.7877\); his position is currently worth \(\nabla C(1,0) \cdot (1,0) = 0.9173\). His own-Take power drift is \(\Delta R_B^{\text{own}} = -0.7877 + 0.9173 = +0.1296\), drawn from Alice, whose maker influence has fallen accordingly.</p>
 
 <div class="phase">
   <div class="phase-tag">Step 3</div>
@@ -823,7 +823,7 @@ $$B_C \leftarrow 0.7877 + 0.4000 = \mathbf{1.1877}$$
 
 $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 
-<h3>Relevance Conservation Ledger</h3>
+<h3>power Conservation Ledger</h3>
 
 <div class="ledger-wrap">
 <table>
@@ -839,7 +839,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<p>Make and Unmake leave every row unchanged — because both conserve individual relevance. Both Takes shift individual rows while holding the column sum fixed. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
+<p>Make and Unmake leave every row unchanged — because both conserve individual power. Both Takes shift individual rows while holding the column sum fixed. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
 
 <div class="table-wrap">
 <table>
@@ -853,7 +853,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </div>
 
 <div class="pullquote">
-  Relevance flows toward those whose beliefs are confirmed by subsequent market activity — and it flows entirely through Take.
+  power flows toward those whose beliefs are confirmed by subsequent market activity — and it flows entirely through Take.
 </div>
 
 <div class="ornament">◆ ◆ ◆</div>
@@ -881,7 +881,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </table>
 </div>
 
-<p><strong>Total initial relevance:</strong> \(R_{\text{total}} = 4.0000\). This quantity is constitutionally conserved. Every step below must return to it.</p>
+<p><strong>Total initial power:</strong> \(R_{\text{total}} = 4.0000\). This quantity is constitutionally conserved. Every step below must return to it.</p>
 
 <div class="phase">
   <div class="phase-tag">Phase I</div>
@@ -912,7 +912,7 @@ $$\Delta C_{\text{Bob}} = \mathbf{0.5231}, \qquad B_B \leftarrow 1.0000 - 0.5231
 
 $$\pi_1 = \mathbf{0.6444}, \qquad \pi_2 = \mathbf{0.3556}$$
 
-<p>Bob paid \(0.5231\); his position is immediately worth \(0.6444\). His own-Take relevance drift: \(\Delta R_B^{\text{own}} = -0.5231 + 0.6444 = +0.1213\), sourced from Alice's repriced maker position. Alice's maker influence is now \(1.4394 - 0.6444 = 0.7950\), and her relevance has fallen to \(0.0837 + 0.7950 = 0.8787\).</p>
+<p>Bob paid \(0.5231\); his position is immediately worth \(0.6444\). His own-Take power drift: \(\Delta R_B^{\text{own}} = -0.5231 + 0.6444 = +0.1213\), sourced from Alice's repriced maker position. Alice's maker influence is now \(1.4394 - 0.6444 = 0.7950\), and her power has fallen to \(0.0837 + 0.7950 = 0.8787\).</p>
 
 <div class="table-wrap">
 <table>
@@ -945,7 +945,7 @@ $$\Delta C_{\text{Carol}} = \mathbf{0.4769}, \qquad B_C \leftarrow 1.0000 - 0.47
 
 $$\pi_1 = \mathbf{0.4000}, \qquad \pi_2 = \mathbf{0.6000}$$
 
-<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid \(0.4769\) for a position immediately worth \(0.6000\): \(\Delta R_C^{\text{own}} = -0.4769 + 0.6000 = +0.1231\), sourced from Bob, whose position fell from \(0.6444\) to \(0.4000\). The market returns exactly to the prior, and Alice's maker influence is restored to \(1.9163 - 1.0000 = 0.9163 = L\), her relevance recovering fully to \(1.0000\).</p>
+<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid \(0.4769\) for a position immediately worth \(0.6000\): \(\Delta R_C^{\text{own}} = -0.4769 + 0.6000 = +0.1231\), sourced from Bob, whose position fell from \(0.6444\) to \(0.4000\). The market returns exactly to the prior, and Alice's maker influence is restored to \(1.9163 - 1.0000 = 0.9163 = L\), her power recovering fully to \(1.0000\).</p>
 
 <div class="table-wrap">
 <table>
@@ -1005,7 +1005,7 @@ $$\Delta C^{(2)}_{\omega_1} = C(2,0) - C(1,0) = 2.1848 - 1.4394 = \mathbf{0.7454
 
 $$\Delta C^{(2)}_{\omega_1} - \Delta C^{(1)}_{\omega_1} = 0.7454 - 0.5231 = 0.2223 > 0$$
 
-<p>The cost function is strictly convex: each unit of \(\omega_1\) purchased shifts \(\pi_1\) upward, making further purchases more expensive. The marginal cost of moving the market further in any direction increases monotonically with distance traveled. A trader who arrives late to a forming consensus pays more per unit of influence than the trader who moved first. This convexity is also the source of redistribution at Take: the same wedge between old and new marginal prices that makes the second unit costlier is the wedge that prevents payment from equaling return, and that drives relevance between participants.</p>
+<p>The cost function is strictly convex: each unit of \(\omega_1\) purchased shifts \(\pi_1\) upward, making further purchases more expensive. The marginal cost of moving the market further in any direction increases monotonically with distance traveled. A trader who arrives late to a forming consensus pays more per unit of influence than the trader who moved first. This convexity is also the source of redistribution at Take: the same wedge between old and new marginal prices that makes the second unit costlier is the wedge that prevents payment from equaling return, and that drives power between participants.</p>
 
 <h3>Governance Snapshot</h3>
 <p>At market state \(\mathbf{q}_m = (1, 1)\), before unmake:</p>
@@ -1148,7 +1148,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 </table>
 </div>
 
-<p>Carol's entry was constitutionally necessary for Alice to recover her initial relevance. Without it, Alice bears the full cost of Bob's informed trade. This is not a flaw — it is the subsidy mechanism made visible in the ledger. The maker's expected loss is the price of infrastructure. Carol's participation is what happened to cancel it in this instance. The system does not guarantee that cancellation. It only guarantees conservation.</p>
+<p>Carol's entry was constitutionally necessary for Alice to recover her initial power. Without it, Alice bears the full cost of Bob's informed trade. This is not a flaw — it is the subsidy mechanism made visible in the ledger. The maker's expected loss is the price of infrastructure. Carol's participation is what happened to cancel it in this instance. The system does not guarantee that cancellation. It only guarantees conservation.</p>
 
 <p>The liquidity parameter \(b\) is a direct dial on the trade-off between <strong>market depth</strong> and <strong>maker exposure</strong>: larger \(b\) means more capital at risk per unit of probability shift, and a harder market for any single taker to move.</p>
 
@@ -1178,13 +1178,13 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <div class="ornament">◆ ◆ ◆</div>
 
 <!-- Section VIII -->
-<h2 id="sec-8"><span class="roman">VIII</span>Conservation of Relevance — Formal Proof</h2>
+<h2 id="sec-8"><span class="roman">VIII</span>Conservation of power — Formal Proof</h2>
 
 <p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that conservation holds for every possible execution of every possible operation, precisely characterizing each operation's individual and systemic effects, and giving a rigorous account of the temporal boundary that governs each taker's exposure.</p>
 
 <h3>The Invariant, Precisely Stated</h3>
 
-<p>Define total relevance as:</p>
+<p>Define total power as:</p>
 
 $$R_{\text{total}} = \sum_{i} B_i + I_{\text{total}}, \qquad I_{\text{total}} = \sum_{\text{markets}} C(\mathbf{q}_m)$$
 
@@ -1221,7 +1221,7 @@ $$\Delta B_m = +[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \
 
 $$\Delta B_t = +\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta I_t = -\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta R_t = 0$$
 
-<p>The primary event is \(\Delta R_i = 0\) for every \(i\). The secondary consequence is \(I_{\text{tot}} = 0\): no participant retains influence in a closed market, so none remains. No relevance crosses between participants. The corollary confirms that total balance gained equals \(C(\mathbf{q}_m)\) and total influence lost equals \(C(\mathbf{q}_m)\) — a global check that follows from individual conservation, not a separate mechanism.</p>
+<p>The primary event is \(\Delta R_i = 0\) for every \(i\). The secondary consequence is \(I_{\text{tot}} = 0\): no participant retains influence in a closed market, so none remains. No power crosses between participants. The corollary confirms that total balance gained equals \(C(\mathbf{q}_m)\) and total influence lost equals \(C(\mathbf{q}_m)\) — a global check that follows from individual conservation, not a separate mechanism.</p>
 
 <p><strong>The temporal decomposition of the settlement discrepancy.</strong> For taker \(t\) who acquired position \(\mathbf{q}_t\) at market state \(\mathbf{q}_{\text{old}} \to \mathbf{q}_{\text{new}} = \mathbf{q}_{\text{old}} + \mathbf{q}_t\), paying \(\Delta C = C(\mathbf{q}_{\text{new}}) - C(\mathbf{q}_{\text{old}})\), the discrepancy between payment and receipt decomposes as:</p>
 
@@ -1263,7 +1263,7 @@ $$\Delta R_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s
 
 $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) < \nabla C(\mathbf{q}') \cdot \Delta\mathbf{q}$$
 
-<p>This wedge — intrinsic to the LMSR, impossible to design away — is simultaneously what generates redistribution between participants and what produces path-dependent pricing: the same nonlinearity that causes relevance to flow at Take causes the second unit of any outcome to cost more than the first. Nevertheless:</p>
+<p>This wedge — intrinsic to the LMSR, impossible to design away — is simultaneously what generates redistribution between participants and what produces path-dependent pricing: the same nonlinearity that causes power to flow at Take causes the second unit of any outcome to cost more than the first. Nevertheless:</p>
 
 $$\sum_i \Delta R_i = 0 \quad \checkmark$$
 
@@ -1282,7 +1282,7 @@ $$\sum_i \Delta R_i = 0 \quad \checkmark$$
 
 <h3>Constitutional Interpretation</h3>
 
-<p>Relevance conservation is what makes Probabilize a <strong>closed epistemic economy</strong>. No authority can inflate credibility. No participant can conjure influence from nothing. Every unit of influence held in a market was funded by a corresponding unit of balance — ultimately traceable to the \(B = 1\) endowment every citizen receives at the beginning.</p>
+<p>power conservation is what makes Probabilize a <strong>closed epistemic economy</strong>. No authority can inflate credibility. No participant can conjure influence from nothing. Every unit of influence held in a market was funded by a corresponding unit of balance — ultimately traceable to the \(B = 1\) endowment every citizen receives at the beginning.</p>
 
 <div class="pullquote">
   <strong>Truth, in Probabilize, is scarce. And scarcity is enforced by this law.</strong>
@@ -1302,16 +1302,16 @@ $$\sum_i \Delta R_i = 0 \quad \checkmark$$
     <tr><td><strong>Balance</strong></td><td>Your current liquid economic capacity</td></tr>
     <tr><td><strong>Market</strong></td><td>A capitalized, probabilistic question</td></tr>
     <tr><td><strong>Make</strong></td><td>Create a market; personal \(B \to I\) conversion at exact par</td></tr>
-    <tr><td><strong>Take</strong></td><td>Buy a position; the only operation that redistributes relevance between participants; exposure begins at entry; price depends on current market state</td></tr>
+    <tr><td><strong>Take</strong></td><td>Buy a position; the only operation that redistributes power between participants; exposure begins at entry; price depends on current market state</td></tr>
     <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — settlement at current prices; \(I_{\text{tot}}\) reaches zero as consequence of individual conservation</td></tr>
     <tr><td><strong>Influence</strong></td><td>Value of your deployed capital at current market prices</td></tr>
-    <tr><td><strong>Relevance</strong></td><td>\(B + I\) — conserved system-wide; redistributed among individuals only by Take; conserved individually by Make and Unmake</td></tr>
+    <tr><td><strong>power</strong></td><td>\(B + I\) — conserved system-wide; redistributed among individuals only by Take; conserved individually by Make and Unmake</td></tr>
     <tr><td><strong>Governance</strong></td><td>Decisions sampled from market-implied probabilities, weighted by credibility</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>Probabilize is a civilization where <strong>commitment is the currency of truth.</strong> Its constitutional guarantees are not aspirational — they are arithmetically enforced, formally proven, verifiable at every step, and immune to exception. Probability is not estimated; it is purchased. Governance is not voted; it is sampled from the distribution that surviving capital produces. Truth is not declared — it is the probability distribution that the market settles on: the emergent aggregate of committed belief, conserved in total relevance, never conjured from nothing.</p>
+<p>Probabilize is a civilization where <strong>commitment is the currency of truth.</strong> Its constitutional guarantees are not aspirational — they are arithmetically enforced, formally proven, verifiable at every step, and immune to exception. Probability is not estimated; it is purchased. Governance is not voted; it is sampled from the distribution that surviving capital produces. Truth is not declared — it is the probability distribution that the market settles on: the emergent aggregate of committed belief, conserved in total power, never conjured from nothing.</p>
 
 <div class="closing">
   <span class="closing-mark">❦</span>

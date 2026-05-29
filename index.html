@@ -626,8 +626,6 @@ $$\mathbf{q}_t + \Delta\mathbf{q} \geq \mathbf{0} \quad \text{(component-wise)}$
 
 $$|\Delta C_{\text{full liquidation}}| = C(\mathbf{q}_m) - C(\mathbf{q}_m - \mathbf{q}_t) > 0$$
 
-<p>This is the taker's instrument for converting influence back to balance while the market remains open — available at any time, constrained only by what they hold.</p>
-
 <p>Upon a valid take, the state updates:</p>
 
 $$\mathbf{q}_m \leftarrow \mathbf{q}_m + \Delta\mathbf{q}$$
@@ -662,7 +660,7 @@ $$B_t \leftarrow B_t + \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
   <strong>Unmake is settlement at current prices, not reimbursement at cost.</strong> What each participant receives is not what they originally paid. The operation converts each participant's influence to balance individually and simultaneously, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant, \(\Delta B_i = +I_i\) and \(\Delta I_i = -I_i\), so \(\Delta P_i = 0\) exactly. The total influence across the market reaches zero as a consequence of these individual conversions — because no participant retains any influence in a closed market, and no influence is left over. This is not retirement or destruction; it is the residue of perfect individual conservation applied simultaneously to all.
 </div>
 
-<p>Unmake is the maker's instrument for collective dissolution of a market. Liquidation — partial or complete selling of a taker's position while the market remains open — is the taker's instrument for individual recovery. Both convert influence to balance, but through categorically different mechanisms: Unmake closes the ledger for everyone at once; liquidation adjusts one taker's position while the market continues.</p>
+<p>Unmake is the maker's instrument for collective dissolution of a market. Liquidation — partial or complete selling of a taker's position while the market remains open — is the taker's individual instrument for recovery. Both convert influence to balance, but through categorically different mechanisms: Unmake closes the ledger for everyone at once; liquidation adjusts one taker's position while the market continues.</p>
 
 <div class="pullquote">
   A taker's net power gain or loss is determined entirely by what happens from the moment they take a position forward — their own trades, and every subsequent trade that reprices their stake. <strong>The market's past is not their inheritance.</strong>
@@ -699,9 +697,9 @@ $$C(\mathbf{q}_m) = \underbrace{L}_{\text{maker's deposit}} + \underbrace{\sum_k
   $$P = B + I$$
 </div>
 
-<p>Power is the sum of balance and influence. To state the conservation law with full precision requires attending to two distinct layers: the collective layer, where the law is exact and mechanical, and the individual layer, where it permits asymmetry.</p>
+<p>Power is the sum of balance and influence. To state the conservation law with full precision requires attending to two distinct layers: the collective layer, where conservation is absolute, and the individual layer, where redistribution is the norm.</p>
 
-<h3>The Collective Layer: A Fundamental Relation</h3>
+<h3>The Collective Layer: Absolute Conservation</h3>
 
 <p>For every operation, without exception:</p>
 
@@ -710,7 +708,7 @@ $$C(\mathbf{q}_m) = \underbrace{L}_{\text{maker's deposit}} + \underbrace{\sum_k
   $$\Delta I_{\text{tot}} = -\Delta B_{\text{tot}}$$
 </div>
 
-<p>Influence is not created from nothing. Every unit of influence that enters the system displaces exactly one unit of collective balance. Every unit of influence that leaves the system restores exactly one unit of collective balance. The two columns are not merely correlated — they are a single conserved quantity partitioned between two forms.</p>
+<p>This is not a tendency or a typical outcome. It is a structural identity that follows from the definition of \(C\) and the update rules. No trade, in any direction, of any size, by any participant, can violate it. It admits no edge cases, no approximations, no regime where it fails.</p>
 
 <p>This holds for all three operations, and for Take in all its cases:</p>
 
@@ -720,42 +718,76 @@ $$\Delta B_{\text{tot}} = -L, \qquad \Delta I_{\text{tot}} = +L, \qquad \Delta B
 <p><strong>Take (\(\Delta C &gt; 0\)):</strong> The taker pays. Collective influence rises.</p>
 $$\Delta B_{\text{tot}} = -\Delta C, \qquad \Delta I_{\text{tot}} = +\Delta C, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0 \checkmark$$
 
-<p><strong>Take (\(\Delta C = 0\)):</strong> No financial exchange. Collective quantities are unchanged. This is the only case that is financially neutral at the collective level — no balance moves in either direction — yet the market state shifts and individual powers redistribute through repricing alone.</p>
+<p><strong>Take (\(\Delta C = 0\)):</strong> No financial exchange. Collective quantities are unchanged. This is the only financially neutral case — yet the gradient shifts, every position is repriced, and individual powers redistribute through repricing alone.</p>
 $$\Delta B_{\text{tot}} = 0, \qquad \Delta I_{\text{tot}} = 0, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0 \checkmark$$
 
-<p><strong>Take (\(\Delta C &lt; 0\)):</strong> The taker receives. Collective influence falls. This case is not neutral — it is financially beneficial to the taker. Because \(\nabla C &gt; 0\) everywhere, any pure liquidation trade unconditionally produces \(\Delta C &lt; 0\).</p>
+<p><strong>Take (\(\Delta C &lt; 0\)):</strong> The taker receives. Collective influence falls. Because \(\nabla C &gt; 0\) everywhere, any pure liquidation trade unconditionally produces \(\Delta C &lt; 0\).</p>
 $$\Delta B_{\text{tot}} = -\Delta C > 0, \qquad \Delta I_{\text{tot}} = +\Delta C < 0, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0 \checkmark$$
 
 <p><strong>Unmake:</strong> Every participant's influence converts to balance. Collective balance recovers \(C(\mathbf{q}_m)\) exactly.</p>
 $$\Delta B_{\text{tot}} = +C(\mathbf{q}_m), \qquad \Delta I_{\text{tot}} = -C(\mathbf{q}_m), \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0 \checkmark$$
 
-<h3>The Individual Layer: Where the Constitution Permits Asymmetry</h3>
+<h3>The Individual Layer: Redistribution Governed by the Fundamental Equation</h3>
 
-<p>The collective exchange is exact and invariant. The individual layer is where asymmetry enters — but only through Take.</p>
+<p>The collective conservation law is absolute. At the individual level, every Take is governed by a single equation that precisely relates the two conditions that might appear to separate — financial neutrality and power neutrality.</p>
 
-<p><strong>Make</strong> is personal in both scope and effect. Only the maker is involved. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
+<p>For the transacting taker with prior position \(\mathbf{q}_t\) executing \(\Delta\mathbf{q}\), define the influence change as:</p>
+
+$$\Delta I_t = \nabla C(\mathbf{q}_m + \Delta\mathbf{q}) \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
+
+<p>This is the repricing of the taker's entire resulting position at the new gradient. The <strong>fundamental equation</strong> of individual power at a Take is then:</p>
+
+<div class="axiom">
+  <div class="axiom-label">Fundamental Equation of Individual Power</div>
+  $$\Delta P_t = -\Delta C + \Delta I_t$$
+</div>
+
+<p>This single equation governs both conditions of interest:</p>
+
+$$\Delta C = 0 \implies \Delta P_t = \Delta I_t$$
+$$\Delta P_t = 0 \implies \Delta C = \Delta I_t$$
+
+<p>Neither condition implies the other. But they are not free to vary independently — both are determined by the same trade \(\Delta\mathbf{q}\) against the same market state \(\mathbf{q}_m\) and prior position \(\mathbf{q}_t\). Changing \(\Delta\mathbf{q}\) changes both simultaneously through \(C\).</p>
+
+<p><strong>\(\Delta C = 0\)</strong> means the market did not move in cost. The taker's balance is unchanged. But the gradient shifted — the implied probabilities are different — and every position in the market is repriced. The taker's power change equals their influence change: \(\Delta P_t = \Delta I_t\). This is generically nonzero; \(\Delta C = 0\) fixes the financial exchange but leaves the repricing term free.</p>
+
+<p><strong>\(\Delta P_t = 0\)</strong> means the taker's power is unchanged. The cost paid equals the influence gained: \(\Delta C = \Delta I_t\). The balance surrendered was exactly offset by the value of the position acquired at current prices. This is the condition for a "fairly priced" trade in the power-accounting sense. It is a specific geometric condition on the joint structure of \(\Delta\mathbf{q}\), \(\mathbf{q}_t\), and \(\mathbf{q}_m\) — satisfiable by deliberate construction but not the generic outcome.</p>
+
+<p>Total conservation also reveals the structure when each condition is imposed:</p>
+
+<p><strong>When \(\Delta C = 0\):</strong> \(\sum_i \Delta I_i = 0\). Total influence is unchanged, but this zero is distributed non-trivially — some participants gain influence, others lose it. The taker's \(\Delta I_t\) need not be zero even though the total is. Total conservation constrains the sum; it says nothing about any individual term.</p>
+
+<p><strong>When \(\Delta P_t = 0\):</strong> \(\sum_{i \neq t} \Delta P_i = 0\). The total power of all other participants is also unchanged as a sum — but again, individual terms need not be zero. Power circulates among the non-transacting participants even when the transacting taker breaks even.</p>
+
+<p><strong>Make</strong> is personal in both scope and effect. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
 
 $$\Delta P_m = 0 \quad \text{(maker only; others untouched)}$$
 
-<p><strong>Unmake</strong> is social in scope but personal in effect. The maker initiates it unilaterally, but it converts the influence of every participant simultaneously — each individually, at the uniform rate \(\nabla C(\mathbf{q}_m)\). For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\). No power moves between participants. The total influence across the market reaches zero as a consequence of these individual conversions — not as an independent event, but as what remains when every participant's influence has been exactly converted to balance and nothing is left to hold.</p>
+<p><strong>Unmake</strong> is social in scope but personal in effect. For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\). Individual conservation holds exactly at Unmake.</p>
 
-<p>This personal character of Unmake has a precise temporal basis. Before a taker enters the market, their position is \(\mathbf{q}_t = \mathbf{0}\). Every Take that occurred before their entry shifted \(\nabla C\) — but applied to a zero position, all such shifts leave the pre-entry taker completely unaffected. Exposure begins at the moment they commit capital and ends at Unmake. The market's prior history is constitutionally irrelevant to their settlement.</p>
+<p>The two levels of conservation are therefore:</p>
 
-<p><strong>Take</strong> is social in both scope and effect, regardless of trade direction or cost. Every Take — whether \(\Delta C\) is positive, zero, or negative — reprices the holdings of every participant in the market simultaneously. The taker funds or receives the entire change in collective influence unilaterally. How the redistribution lands at the individual level is determined by the convexity of the cost function.</p>
-
-$$\Delta P_i \neq 0 \text{ in general}, \quad \text{but} \quad \sum_i \Delta P_i = 0 \quad \text{always}$$
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Level</th><th>Statement</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td><strong>System</strong></td><td>\(\sum_i \Delta P_i = 0\) at every Take</td><td><strong>Absolute</strong> — no exceptions, no edge cases</td></tr>
+    <tr><td><strong>Individual</strong></td><td>\(\Delta P_i \neq 0\) at most Takes</td><td><strong>Generic</strong> — zero requires \(\Delta C = \Delta I_t\) exactly</td></tr>
+  </tbody>
+</table>
+</div>
 
 <p>The lifecycle of a position makes this concrete:</p>
 
-$$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C > 0 \\ \text{no exchange if } \Delta C = 0 \\ \text{receive if } \Delta C < 0}} \;\longrightarrow\; \underbrace{\text{Hold } \mathbf{q}_t}_{\substack{\text{influence fluctuates} \\ \text{from entry forward}}} \;\longrightarrow\; \underbrace{\text{Receive } \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t}_{\text{Unmake: influence converted individually}}$$
+$$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C > 0 \\ \text{no exchange if } \Delta C = 0 \\ \text{receive if } \Delta C < 0}} \;\longrightarrow\; \underbrace{\text{Hold } \mathbf{q}_t}_{\substack{\text{influence repriced} \\ \text{from entry forward}}} \;\longrightarrow\; \underbrace{\text{Receive } \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t}_{\text{Unmake: individual conservation exact}}$$
 
 <div class="table-wrap">
 <table>
   <thead><tr><th>Operation</th><th>\(\Delta B_{\text{tot}} + \Delta I_{\text{tot}}\)</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\)</td><td>\(\neq 0\) in general</td><td class="num zero">\(0\)</td><td>Redistribution between participants; holds for all signs of \(\Delta C\)</td></tr>
-    <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
+    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Governed by \(\Delta P_t = -\Delta C + \Delta I_t\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Redistribution between participants</td></tr>
+    <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant (exact)</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
   </tbody>
 </table>
 </div>
@@ -779,7 +811,7 @@ $$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C 
 </table>
 </div>
 
-<p>No position exists without the maker's foundation, and no taker's influence is backed by their own payment alone. Every claim is a share of the pool, repriced continuously as the market evolves. The no-shorting principle has its full grounding here: influence is a positive claim on a positive pool. The pool has no negative layer. You cannot hold negative influence because the collective backing structure admits no such entry.</p>
+<p>No position exists without the maker's foundation, and no taker's influence is backed by their own payment alone. Every claim is a share of the pool, repriced continuously as the market evolves. The no-shorting principle has its full grounding here: influence is a positive claim on a positive pool. The pool has no negative layer.</p>
 
 <p>Influence in Probabilize is not an abstract score. It is balance that has been committed to a market — transformed in form, not in magnitude, and recoverable either through Unmake (the maker's collective instrument) or through voluntary liquidation (the taker's individual instrument, available whenever the market is open). The scarcity of influence is the scarcity of balance. And balance is scarce because every citizen begins with exactly \(B = 1\), and no operation creates it from nothing.</p>
 
@@ -942,7 +974,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<p>Make and Unmake leave every row unchanged — both conserve individual power. Both Takes shift individual rows while holding the column sum fixed. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
+<p>Make and Unmake leave every row unchanged — both conserve individual power. Both Takes shift individual rows while holding the column sum fixed by the absolute system conservation law. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
 
 <div class="table-wrap">
 <table>
@@ -964,7 +996,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 <!-- Section VII -->
 <h2 id="sec-7"><span class="roman">VII</span>Extended Simulation — The Infrastructure Bill Market</h2>
 
-<p>The preceding example established the core mechanics with three participants and a symmetric conclusion. The following simulation introduces additional phenomena: <strong>capital enforcement against underfunded trades</strong>, the <strong>maker's subsidy as a structural feature</strong> revealed by premature closure, <strong>path-dependent pricing</strong> demonstrated rigorously, and a detailed view of the governance mechanism in action.</p>
+<p>The preceding example established the core mechanics with three participants and a symmetric conclusion. The following simulation introduces additional phenomena: <strong>capital enforcement against underfunded trades</strong>, the <strong>maker's subsidy as a structural feature</strong> revealed by premature closure, <strong>path-dependent pricing</strong> demonstrated rigorously, and the two missing cases of Take — <strong>zero-cost mixed trading</strong> and <strong>liquidation</strong> — demonstrated with full power accounting.</p>
 
 <h3>The Scenario</h3>
 <p><strong>Market Question:</strong> <em>"Will the Infrastructure Bill Pass?"</em></p>
@@ -1032,7 +1064,7 @@ $$\pi_1 = \mathbf{0.6444}, \qquad \pi_2 = \mathbf{0.3556}$$
 </table>
 </div>
 
-$$\Delta P_A = -0.1213, \qquad \Delta P_B = +0.1213, \qquad \Delta P_A + \Delta P_B = 0 \checkmark$$
+$$\Delta P_A = -0.1213, \qquad \Delta P_B = +0.1213, \qquad \sum_i \Delta P_i = 0 \checkmark$$
 
 <div class="phase">
   <div class="phase-tag">Phase III</div>
@@ -1085,7 +1117,10 @@ $$B_{\text{Dave}} = 1.0000 \not\geq 2.1559 \quad \textbf{REJECTED}$$
 
 <p>Dave's balance is insufficient. He cannot acquire this much influence without the economic capacity to back it. The system enforces this hard constraint without appeal, exception, or override. Dave's opinion exists; it simply carries zero market power. <strong>Belief in Probabilize is not expressed — it is purchased.</strong> Dave's state is unchanged: \(P_D = 1.0000\).</p>
 
-<h3>Path-Dependent Pricing</h3>
+<div class="phase">
+  <div class="phase-tag">Phase V</div>
+  <h3>Path-Dependent Pricing</h3>
+</div>
 
 <p>The cost of a trade is not a fixed property of the outcome. It is a function of the current market state, which encodes the full history of prior trades. The correct demonstration requires two <strong>identical</strong> trades — same outcome, same quantity — executed at different market states.</p>
 
@@ -1108,14 +1143,97 @@ $$\Delta C^{(2)}_{\omega_1} = C(2,0) - C(1,0) = 2.1848 - 1.4394 = \mathbf{0.7454
 </table>
 </div>
 
-<p>Same outcome. Same quantity. The second unit costs <strong>42.5% more</strong> than the first.</p>
+<p>Same outcome. Same quantity. The second unit costs <strong>42.5% more</strong> than the first. The cost function is strictly convex: each unit purchased shifts \(\pi_1\) upward, making further purchases more expensive. This convexity is also what produces the wedge in \(\Delta P_t = -\Delta C + \Delta I_t\) — the same mechanism that makes the second unit costlier is precisely what prevents \(\Delta P_t = 0\) in the generic case.</p>
 
-$$\Delta C^{(2)}_{\omega_1} - \Delta C^{(1)}_{\omega_1} = 0.7454 - 0.5231 = 0.2223 > 0$$
+<div class="phase">
+  <div class="phase-tag">Phase VI</div>
+  <h3>The Two Missing Cases</h3>
+</div>
 
-<p>The cost function is strictly convex: each unit of \(\omega_1\) purchased shifts \(\pi_1\) upward, making further purchases more expensive. The marginal cost of moving the market further in any direction increases monotonically with distance traveled. This convexity is also the source of redistribution at Take: the wedge between old and new marginal prices that makes the second unit costlier is precisely what prevents a taker's payment from equaling their return, and drives power between participants.</p>
+<p>Both cases are demonstrated as alternative continuations from the market state at the end of Phase IV: \(\mathbf{q}_m = (1,1)\), \(\nabla C = (0.40, 0.60)\), \(C = 1.9163\). Bob acts as the taker. His current state: \(\mathbf{q}_B = (1, 0)\), \(B_B = 0.4769\).</p>
+
+<h4>Alternative A — Bob's Zero-Cost Mixed Trade (\(\Delta C = 0\))</h4>
+
+<p>Bob sells his 1 unit of \(\omega_1\) and simultaneously buys \(\delta \approx 0.3521\) units of \(\omega_2\), chosen so that \(C(0, 1+\delta) = C(1,1) = 1.9163\) exactly.</p>
+
+<p><strong>Trade:</strong> \(\Delta\mathbf{q} = (-1,\ 0.3521)\), \(\Delta C = \mathbf{0}\)</p>
+
+<p><strong>Nonneg constraint:</strong> \((1,0) + (-1, 0.3521) = (0,\ 0.3521) \geq \mathbf{0}\ \checkmark\)</p>
+
+<p><strong>Balance constraint:</strong> \(B_B \geq 0\ \checkmark\) — trivially satisfied; would hold even if \(B_B = 0\).</p>
+
+<p>\(\Delta C = 0\) fixes \(\Delta B_B = 0\) exactly. By the fundamental equation: \(\Delta P_B = -\Delta C + \Delta I_B = \Delta I_B\). The gradient shifts from \((0.40, 0.60)\) to \((0.1472, 0.8528)\); Bob's resulting position \((0,\ 0.3521)\) is repriced at the new gradient.</p>
+
+$$\Delta I_B = 0.8528 \times 0.3521 - 0.40 \times 1 - 0.60 \times 0 = 0.3002 - 0.4000 = -0.0998$$
+$$\Delta P_B = -0 + (-0.0998) = \mathbf{-0.0998}$$
+
+<p>Bob paid nothing. Bob received nothing. Yet his power fell by \(0.0998\). This confirms that \(\Delta C = 0\) does not imply \(\Delta P_t = 0\) — the gradient shifted and the repricing term \(\Delta I_t\) was nonzero. Financial neutrality is not power neutrality.</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(P\)</th><th>\(\Delta P\)</th></tr></thead>
+  <tbody>
+    <tr><td>Alice</td><td class="num">0.0837</td><td class="num">0.7633</td><td class="num"><strong>0.8470</strong></td><td class="num neg">−0.1530</td></tr>
+    <tr><td>Bob</td><td class="num">0.4769</td><td class="num">0.3002</td><td class="num"><strong>0.7771</strong></td><td class="num neg">−0.0998</td></tr>
+    <tr><td>Carol</td><td class="num">0.5231</td><td class="num">0.8528</td><td class="num"><strong>1.3759</strong></td><td class="num pos">+0.2528</td></tr>
+    <tr><td>Dave</td><td class="num">1.0000</td><td class="num">0</td><td class="num"><strong>1.0000</strong></td><td class="num zero">0</td></tr>
+    <tr><td><strong>Total</strong></td><td></td><td></td><td class="num check"><strong>4.0000 ✓</strong></td><td class="num zero"><strong>0</strong> ✓</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>\(0.2528\) units of power flowed to Carol from Alice and Bob jointly, with no balance changing hands. Total conservation is absolute; the zero is distributed non-trivially — Carol gains while Alice and Bob lose.</p>
+
+<h4>Alternative B — Bob's Full Liquidation (\(\Delta C &lt; 0\))</h4>
+
+<p>Bob sells his entire position: \(\Delta\mathbf{q} = (-1,\ 0)\).</p>
+
+<p><strong>Nonneg constraint:</strong> \((1,0) + (-1,0) = (0,0) \geq \mathbf{0}\ \checkmark\)</p>
+
+$$\Delta C = C(0, 1) - C(1,1) = 1.6245 - 1.9163 = \mathbf{-0.2918}$$
+
+<p><strong>Balance constraint:</strong> \(B_B \geq -0.2918\ \checkmark\) — trivially satisfied; the market pays Bob. Would hold even if \(B_B = 0\).</p>
+
+$$B_B \leftarrow 0.4769 + 0.2918 = \mathbf{0.7687}$$
+
+<p>Bob is richer. By the fundamental equation: \(\Delta P_B = -\Delta C + \Delta I_B = +0.2918 + \Delta I_B\).</p>
+
+$$\Delta I_B = \nabla C(0,1) \cdot (0,0) - \nabla C(1,1) \cdot (1,0) = 0 - 0.4000 = -0.4000$$
+$$\Delta P_B = +0.2918 + (-0.4000) = \mathbf{-0.1082}$$
+
+<p>Bob's balance increased by \(0.2918\). His power nonetheless fell by \(0.1082\) — because the influence he surrendered (\(0.4000\)) was worth more than what he recovered in balance (\(0.2918\)). The fundamental equation makes this transparent: \(\Delta B_B = +0.2918\) and \(\Delta I_B = -0.4000\) combine to give \(\Delta P_B = -0.1082\).</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Participant</th><th>\(B\)</th><th>\(I\)</th><th>\(P\)</th><th>\(\Delta P\)</th></tr></thead>
+  <tbody>
+    <tr><td>Alice</td><td class="num">0.0837</td><td class="num">0.8215</td><td class="num"><strong>0.9052</strong></td><td class="num neg">−0.0948</td></tr>
+    <tr><td>Bob</td><td class="num">0.7687</td><td class="num">0</td><td class="num"><strong>0.7687</strong></td><td class="num neg">−0.1082</td></tr>
+    <tr><td>Carol</td><td class="num">0.5231</td><td class="num">0.8030</td><td class="num"><strong>1.3261</strong></td><td class="num pos">+0.2030</td></tr>
+    <tr><td>Dave</td><td class="num">1.0000</td><td class="num">0</td><td class="num"><strong>1.0000</strong></td><td class="num zero">0</td></tr>
+    <tr><td><strong>Total</strong></td><td></td><td></td><td class="num check"><strong>4.0000 ✓</strong></td><td class="num zero"><strong>0</strong> ✓</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Side-by-Side Comparison</h4>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Case</th><th>\(\Delta C\)</th><th>\(\Delta B_B\)</th><th>\(\Delta I_B\)</th><th>\(\Delta P_B = -\Delta C + \Delta I_B\)</th></tr></thead>
+  <tbody>
+    <tr><td>Zero-cost mixed trade</td><td class="num zero">0</td><td class="num zero">0</td><td class="num neg">−0.0998</td><td class="num neg">−0.0998</td></tr>
+    <tr><td>Full liquidation</td><td class="num neg">−0.2918</td><td class="num pos">+0.2918</td><td class="num neg">−0.4000</td><td class="num neg">−0.1082</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\) makes both results transparent. In Alternative A, \(\Delta C = 0\) so \(\Delta P_B = \Delta I_B\) directly. In Alternative B, \(\Delta C &lt; 0\) returns balance but \(\Delta I_B\) falls further; the net is negative. Neither case achieves \(\Delta P_B = 0\), which would require \(\Delta C = \Delta I_t\) — a distinct geometric condition that was not met in either trade.</p>
+
+<p>In both cases \(\sum_i \Delta P_i = 0\): absolute, without exception. The total remained \(4.0000\) throughout.</p>
 
 <h3>Governance Snapshot</h3>
-<p>At market state \(\mathbf{q}_m = (1, 1)\), before unmake:</p>
+<p>At market state \(\mathbf{q}_m = (1, 1)\), before any Phase VI trade or Unmake:</p>
 
 <div class="table-wrap">
 <table>
@@ -1130,8 +1248,6 @@ $$\Delta C^{(2)}_{\omega_1} - \Delta C^{(1)}_{\omega_1} = 0.7454 - 0.5231 = 0.22
 </table>
 </div>
 
-<p>If a governance decision were sampled right now, the outcome would be drawn from the distribution \((0.40,\ 0.60)\): Pass with probability 40%, Fail with probability 60%. The individual shares of that decision's authority are proportional to influence:</p>
-
 $$I_{\text{Alice}} = 0.9163 \quad (47.8\% \text{ of total market influence})$$
 $$I_{\text{Bob}} = 0.4000 \quad (20.9\%)$$
 $$I_{\text{Carol}} = 0.6000 \quad (31.3\%)$$
@@ -1139,17 +1255,17 @@ $$I_{\text{Carol}} = 0.6000 \quad (31.3\%)$$
 <p>Alice's outsized influence reflects her role as liquidity provider and pool founder. She did not take a directional position — but she did set the prior probabilities — and she built the infrastructure through which all belief is expressed. Her influence is the residual claim on the foundation she laid.</p>
 
 <div class="phase">
-  <div class="phase-tag">Phase V</div>
+  <div class="phase-tag">Phase VII</div>
   <h3>Alice Unmakes the Market</h3>
 </div>
 
-<p>Alice closes the market at final state \(\mathbf{q}_m = (1, 1)\), \(\nabla C = (0.40,\ 0.60)\), \(C = 1.9163\).</p>
+<p>Alice closes the market (canonical state \(\mathbf{q}_m = (1, 1)\), \(\nabla C = (0.40,\ 0.60)\), \(C = 1.9163\)):</p>
 
 $$B_A \leftarrow 0.0837 + \left[1.9163 - (0.40 \times 1 + 0.60 \times 1)\right] = 0.0837 + 0.9163 = \mathbf{1.0000}$$
 $$B_B \leftarrow 0.4769 + 0.40 \times 1 = \mathbf{0.8769}$$
 $$B_C \leftarrow 0.5231 + 0.60 \times 1 = \mathbf{1.1231}$$
 
-<p>Unmake sees only the current gradient \((0.40,\ 0.60)\). It converts each participant's influence to balance individually and simultaneously. The influence column reaches zero as a consequence of perfect individual conservation — not through retirement or destruction. The entire redistribution of power was determined before Unmake ran. Unmake converts; it does not redistribute.</p>
+<p>Unmake sees only the current gradient \((0.40,\ 0.60)\). It converts each participant's influence to balance individually and simultaneously. The influence column reaches zero as a consequence of perfect individual conservation. The entire redistribution of power was determined before Unmake ran. Unmake converts; it does not redistribute.</p>
 
 <h3>Conservation Ledger — Full Run</h3>
 
@@ -1177,13 +1293,7 @@ $$B_C \leftarrow 0.5231 + 0.60 \times 1 = \mathbf{1.1231}$$
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<p>Three structural facts are visible only when \(B\), \(I\), and \(P\) are all shown.</p>
-
-<p><strong>The \(I_{\text{tot}}\) column traces market depth exactly.</strong> It begins at zero, rises to \(C(\mathbf{0}) = L = 0.9163\) at Make, increases with each Take by exactly \(\Delta C\), holds flat through Dave's rejected trade, and collapses at Unmake. At every row, \(I_{\text{tot}} = C(\mathbf{q}_m)\). This is not coincidental — it is the definition of influence.</p>
-
-<p><strong>The \(B_{\text{tot}}\) column is the mirror image of \(I_{\text{tot}}\).</strong> Every unit of influence outstanding displaced exactly one unit of collective balance when it was created. Every unit recovered at Unmake restores exactly one unit of collective balance. The two columns are a single conserved quantity partitioned between two forms.</p>
-
-<p><strong>The Unmake row is the only row where \(I = 0\) for all participants simultaneously.</strong> When \(I_{\text{tot}} = 0\), the market has ceased to exist as an epistemic structure. What remains is only balance — individual economic capacity, stripped of any shared commitment. The \(P\)-column of the Unmake row is identical to the row above it: Unmake converts influence to balance individually and exactly. It does not move power between participants.</p>
+<p>The \(I_{\text{tot}}\) column traces the collective pool. The \(B_{\text{tot}}\) column is its exact mirror. \(P_{\text{tot}} = 4.0000\) without exception.</p>
 
 <h3>Taker Settlement Decomposition</h3>
 
@@ -1197,9 +1307,7 @@ $$B_C \leftarrow 0.5231 + 0.60 \times 1 = \mathbf{1.1231}$$
 </table>
 </div>
 
-<p>Bob's subsequent term: \([\nabla C(1,1) - \nabla C(1,0)] \cdot (1,0) = (0.4000 - 0.6444) \times 1 = -0.2444\). Carol's subsequent term is zero — no trades followed her entry. Her \(\Delta P^{\text{own}}\) is her entire net power change.</p>
-
-<p>The discrepancy between what each taker paid and what they received is not error — it is the cumulative effect of repricing from their own trade and all subsequent trades. Unmake settles at current prices, not purchase prices. The history of the market between entry and close is fully encoded in the final gradient.</p>
+<p>Bob's subsequent term: \([\nabla C(1,1) - \nabla C(1,0)] \cdot (1,0) = (0.4000 - 0.6444) \times 1 = -0.2444\). Carol's subsequent term is zero — no trades followed her entry.</p>
 
 <h3>Variant — Early Unmake After Bob Alone</h3>
 
@@ -1231,15 +1339,6 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<div class="table-wrap">
-<table>
-  <thead><tr><th>Taker</th><th>Entry state</th><th>Paid</th><th>\(\Delta P^{\text{own}}\)</th><th>\(\Delta P^{\text{subsequent}}\)</th><th>Total \(\Delta P\)</th><th>Received</th></tr></thead>
-  <tbody>
-    <tr><td>Bob</td><td class="num">\((0,0)\)</td><td class="num">0.5231</td><td class="num pos">+0.1213</td><td class="num zero">0</td><td class="num pos">+0.1213</td><td class="num">0.6444</td></tr>
-  </tbody>
-</table>
-</div>
-
 <p><strong>Lifecycle comparison across both scenarios:</strong></p>
 
 <div class="table-wrap">
@@ -1254,9 +1353,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 </table>
 </div>
 
-<p>Carol's entry was constitutionally necessary for Alice to recover her initial power. Without it, Alice bears the full cost of Bob's informed trade permanently. The system does not guarantee that cancellation. It only guarantees conservation.</p>
-
-<p>The liquidity parameter \(b\) is a direct dial on the trade-off between <strong>market depth</strong> and <strong>maker exposure</strong>: larger \(b\) means more capital at risk per unit of probability shift, and a harder market for any single taker to move.</p>
+<p>Carol's entry was constitutionally necessary for Alice to recover her initial power. The system does not guarantee that cancellation. It only guarantees conservation.</p>
 
 <h3>Properties Demonstrated</h3>
 
@@ -1266,21 +1363,23 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
   <tbody>
     <tr><td>Make: personal in scope and effect</td><td>Phase I: Alice's \(P\) unchanged; others do not exist in the operation</td></tr>
     <tr><td>Take: immediately reprices maker's influence</td><td>Phase II: Alice's \(P\) falls from \(1.0000\) to \(0.8787\) without transacting</td></tr>
-    <tr><td>\(\Delta C = 0\) is financially neutral; \(\Delta C &lt; 0\) is financially beneficial</td><td>Structural: \(\nabla C &gt; 0\) everywhere guarantees liquidation always produces \(\Delta C &lt; 0\)</td></tr>
+    <tr><td>Fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\)</td><td>Phase VI: both cases computed transparently through this equation</td></tr>
+    <tr><td>\(\Delta C = 0\) implies \(\Delta P_t = \Delta I_t\), not \(\Delta P_t = 0\)</td><td>Phase VI(a): Bob pays nothing; power still falls by \(0.0998\) because gradient shifted</td></tr>
+    <tr><td>\(\Delta P_t = 0\) requires \(\Delta C = \Delta I_t\), a distinct geometric condition</td><td>Phase VI: neither case satisfies this; zero is possible but requires deliberate construction</td></tr>
+    <tr><td>System conservation \(\sum_i \Delta P_i = 0\): absolute</td><td>Every phase: column sum \(= 4.0000\) without exception</td></tr>
+    <tr><td>\(\Delta C = 0\): financially neutral; total influence unchanged; individual repricing nonzero</td><td>Phase VI(a): \(\sum_i \Delta I_i = 0\) but individual \(\Delta I_i \neq 0\)</td></tr>
+    <tr><td>\(\Delta C &lt; 0\): financially beneficial; balance increases, power may still fall</td><td>Phase VI(b): Bob receives \(0.2918\), yet loses \(0.1082\) in power</td></tr>
+    <tr><td>\(\Delta B\) and \(\Delta P\) are independent quantities</td><td>Phase VI side-by-side: governed by \(\Delta P_t = -\Delta C + \Delta I_t\)</td></tr>
     <tr><td>Liquidation always moves market downward</td><td>Formal: \(\nabla C &gt; 0\) everywhere; pure selling strictly decreases \(C\); \(\Delta C &lt; 0\) unconditionally</td></tr>
     <tr><td>\(I_{\text{tot}}\) traces market depth exactly</td><td>Both ledgers: \(I_{\text{tot}} = C(\mathbf{q}_m)\) at every row</td></tr>
     <tr><td>\(B_{\text{tot}}\) and \(I_{\text{tot}}\) are mirror images</td><td>Both ledgers: their sum is \(4.0000\) at every row</td></tr>
     <tr><td>Unmake: \(P\)-column identical to preceding row</td><td>Both ledgers: Unmake converts; it does not redistribute</td></tr>
-    <tr><td>Unmake: influence reaches zero as consequence of individual conservation</td><td>Both ledgers: \(\Delta P_i = 0\) for every \(i\); \(I_{\text{tot}} = 0\) follows</td></tr>
-    <tr><td>Unmake: settlement at current prices, not reimbursement at cost</td><td>Full run: Bob paid \(0.5231\), received \(0.4000\)</td></tr>
-    <tr><td>Taker exposure begins at entry, not market creation</td><td>Phase III: Carol unaffected by Bob's prior distortion to \(64.44\%\)</td></tr>
-    <tr><td>\(\Delta P\) decomposes into own-Take and subsequent-Takes</td><td>Taker settlement decomposition tables</td></tr>
+    <tr><td>Taker exposure begins at entry</td><td>Phase III: Carol unaffected by Bob's prior distortion to \(64.44\%\)</td></tr>
     <tr><td>Collective backing of influence</td><td>Pool identity: \(C(\mathbf{q}_m) = L + \sum_k \Delta C^{(k)}\) at every state</td></tr>
     <tr><td>Carol's entry necessary for Alice's full recovery</td><td>Lifecycle comparison: without Carol, Alice bears \(-0.1213\) permanently</td></tr>
     <tr><td>Capital-enforced belief</td><td>Phase IV: Dave's trade rejected; belief exists but carries zero market power</td></tr>
-    <tr><td>Prior restoration from symmetric trades</td><td>Phase III: \(\nabla C(1,1) = p\) exactly</td></tr>
-    <tr><td>Path-dependent pricing</td><td>Two sequential 1-unit trades on \(\omega_1\): first costs \(0.5231\) at \((0,0)\); second costs \(0.7454\) at \((1,0)\) — identical trade, 42.5% higher price</td></tr>
-    <tr><td>Convexity is source of redistribution</td><td>Path-dependent pricing and Take repricing share the same mechanism: the wedge between old and new marginal prices</td></tr>
+    <tr><td>Path-dependent pricing</td><td>Phase V: two sequential 1-unit trades on \(\omega_1\) — first costs \(0.5231\), second costs \(0.7454\) — 42.5% higher</td></tr>
+    <tr><td>Convexity is source of redistribution</td><td>The wedge in \(\Delta P_t = -\Delta C + \Delta I_t\) is produced by the same convexity that makes the second unit costlier</td></tr>
   </tbody>
 </table>
 </div>
@@ -1290,7 +1389,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <!-- Section VIII -->
 <h2 id="sec-8"><span class="roman">VIII</span>Conservation of Power — Formal Proof</h2>
 
-<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that conservation holds for every possible execution of every possible operation, precisely characterizing each operation's individual and systemic effects, giving a rigorous account of the temporal boundary that governs each taker's exposure, and proving that liquidation unconditionally produces \(\Delta C &lt; 0\).</p>
+<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that system conservation is absolute and characterizing the individual layer through the fundamental equation.</p>
 
 <h3>The Invariant, Precisely Stated</h3>
 
@@ -1298,19 +1397,17 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 
 $$P_{\text{total}} = \sum_{i} B_i + I_{\text{total}}, \qquad I_{\text{total}} = \sum_{\text{markets}} C(\mathbf{q}_m)$$
 
-<p>For any active market, \(C(\mathbf{q}_m) = L + \sum_k \Delta C^{(k)}\) — the maker's foundation plus all incremental taker net payments. The maker holds influence \(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\), and all takers collectively hold \(\nabla C(\mathbf{q}_m) \cdot \sum_t \mathbf{q}_t\). These sum to \(C(\mathbf{q}_m)\).</p>
+<p>For any active market, \(C(\mathbf{q}_m) = L + \sum_k \Delta C^{(k)}\). The maker holds influence \(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\), and all takers collectively hold \(\nabla C(\mathbf{q}_m) \cdot \sum_t \mathbf{q}_t\). These sum to \(C(\mathbf{q}_m)\).</p>
 
 <h3>Foundational Lemma: Holdings Sum to Market State</h3>
 
-<p><strong>Claim:</strong> For any active market with state \(\mathbf{q}_m\) and taker holdings \(\{\mathbf{q}_t\}\):</p>
+<p><strong>Claim:</strong> \(\sum_t \mathbf{q}_t = \mathbf{q}_m\) for any active market.</p>
 
-$$\sum_t \mathbf{q}_t = \mathbf{q}_m$$
-
-<p><strong>Proof by induction.</strong> At creation, \(\mathbf{q}_m = \mathbf{0}\) and no takers exist. Each Take adds \(\Delta\mathbf{q}\) to both \(\mathbf{q}_m\) and the executing taker's \(\mathbf{q}_t\). The sum is preserved at every step, regardless of the sign of \(\Delta\mathbf{q}\) or the value of \(\Delta C\). \(\blacksquare\)</p>
+<p><strong>Proof by induction.</strong> At creation, \(\mathbf{q}_m = \mathbf{0}\) and no takers exist. Each Take adds \(\Delta\mathbf{q}\) to both \(\mathbf{q}_m\) and the executing taker's \(\mathbf{q}_t\). The sum is preserved at every step. \(\blacksquare\)</p>
 
 <h3>Key Corollary: Total Influence in Any Market Equals Its Cost</h3>
 
-$$I_{\text{market}} = \left(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\right) + \sum_t \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t = C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m + \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m$$
+$$I_{\text{market}} = \left(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\right) + \sum_t \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t = C(\mathbf{q}_m)$$
 
 <div class="axiom">
   <div class="axiom-label">Accounting Identity</div>
@@ -1323,86 +1420,70 @@ $$I_{\text{market}} = \left(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \math
 
 <p><strong>Proof.</strong> The gradient of \(C\) is strictly positive in every component at every market state:</p>
 
-$$\frac{\partial C}{\partial q_i} = \frac{p_i \cdot e^{q_i/b}}{\sum_j p_j \cdot e^{q_j/b}} > 0 \quad \text{for all } i,\ \text{all } \mathbf{q}$$
+$$\frac{\partial C}{\partial q_i} = \frac{p_i \cdot e^{q_i/b}}{\sum_j p_j \cdot e^{q_j/b}} > 0$$
 
-<p>since \(p_i &gt; 0\) and all exponentials are positive. Therefore \(C\) is strictly increasing in every coordinate. For any \(\Delta\mathbf{q} \leq \mathbf{0}\) with at least one strict inequality, the market state \(\mathbf{q}_m + \Delta\mathbf{q}\) is strictly less than \(\mathbf{q}_m\) in at least one coordinate and no greater in any. By strict monotonicity:</p>
-
-$$C(\mathbf{q}_m + \Delta\mathbf{q}) < C(\mathbf{q}_m) \implies \Delta C < 0 \quad \blacksquare$$
-
-<p>This is not a special case or regime. It is an unconditional consequence of \(\nabla C &gt; 0\) everywhere. Liquidation always returns balance to the taker. The balance constraint never binds on a pure liquidation trade. The only binding constraint is the nonneg holdings constraint: you cannot sell what you do not hold. The maximum balance recoverable from full liquidation of position \(\mathbf{q}_t\) is:</p>
-
-$$|\Delta C_{\text{full liquidation}}| = C(\mathbf{q}_m) - C(\mathbf{q}_m - \mathbf{q}_t) > 0$$
-
-<p>The strictly positive gradient also establishes the dual asymmetry governing Take: convexity makes buying increasingly expensive (path-dependent pricing), while strict positivity makes selling always remunerative (liquidation always beneficial).</p>
+<p>Therefore \(C\) is strictly increasing in every coordinate. For any \(\Delta\mathbf{q} \leq \mathbf{0}\) with at least one strict inequality, \(C(\mathbf{q}_m + \Delta\mathbf{q}) &lt; C(\mathbf{q}_m)\), hence \(\Delta C &lt; 0\). \(\blacksquare\)</p>
 
 <h3>Operation 1: Make — Foundation Layer and Personal \(B \to I\) Conversion</h3>
 
 $$\Delta B_m = -L, \qquad \Delta I_m = +L, \qquad \Delta P_m = 0$$
 $$\Delta B_{\text{tot}} = -L, \qquad \Delta I_{\text{tot}} = +L, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0$$
 
-<p>The maker's deposit establishes the pool at \(C(\mathbf{0}) = L\). No other participant's balance or influence is affected.</p>
+<p>No other participant's balance or influence is affected.</p>
 
 <h3>Operation 3: Unmake — Personal \(I \to B\) Conversion for All Simultaneously</h3>
 
 <p>Each participant's share of the collective pool converts individually to balance at the uniform rate \(\nabla C(\mathbf{q}_m)\):</p>
 
-$$\Delta B_m = +[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta I_m = -[C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m], \quad \Delta P_m = 0$$
-$$\Delta B_t = +\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta I_t = -\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t, \quad \Delta P_t = 0$$
+$$\Delta B_i = +I_i, \qquad \Delta I_i = -I_i, \qquad \Delta P_i = 0 \quad \text{for every } i$$
 
-<p>The primary event is \(\Delta P_i = 0\) for every \(i\). Summing by the corollary:</p>
+<p>Individual conservation holds exactly at Unmake. Summing by the corollary:</p>
 
 $$\Delta B_{\text{tot}} = +C(\mathbf{q}_m), \qquad \Delta I_{\text{tot}} = -C(\mathbf{q}_m), \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0$$
 
-<p>The total influence reaches zero as the consequence of individual conservation. The entire pool is distributed.</p>
-
-<p><strong>The temporal decomposition of the settlement discrepancy.</strong> For taker \(t\) who accumulated net position \(\mathbf{q}_t\), the discrepancy between net payment and receipt at Unmake decomposes as:</p>
+<p><strong>The temporal decomposition of the settlement discrepancy.</strong> For taker \(t\) with net position \(\mathbf{q}_t\):</p>
 
 $$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C_t^{\text{net}} = \underbrace{-\Delta C_t^{\text{net}} + \nabla C(\mathbf{q}_{\text{entry}}) \cdot \mathbf{q}_t}_{\Delta P_t^{\text{own}}} + \underbrace{\left[\nabla C(\mathbf{q}_m) - \nabla C(\mathbf{q}_{\text{entry}})\right] \cdot \mathbf{q}_t}_{\Delta P_t^{\text{subsequent}}}$$
 
-<p><strong>Why past takes are excluded.</strong> Before taker \(t\) holds any position, \(\mathbf{q}_t = \mathbf{0}\). For every market movement prior to their first purchase:</p>
+<p>Before taker \(t\) holds any position, \(\mathbf{q}_t = \mathbf{0}\), so all prior market movements produce \(\Delta P_t^{\text{past}} = 0\). The market's history before entry is constitutionally irrelevant to settlement.</p>
 
-$$\Delta P_t^{\text{past}} = \left[\nabla C(\mathbf{q}'') - \nabla C(\mathbf{q}')\right] \cdot \mathbf{0} = 0$$
-
-<p>A zero position is invisible to repricing. This defines the precise <strong>temporal boundary</strong>:</p>
-
-<div class="table-wrap">
-<table>
-  <thead><tr><th>Period</th><th>Market moves</th><th>Effect on \(\Delta P_t\)</th></tr></thead>
-  <tbody>
-    <tr><td>Before entry</td><td class="num">\(\mathbf{q}_{\text{initial}} \to \mathbf{q}_{\text{old}}\)</td><td class="num zero">\(= 0\) (no position held)</td></tr>
-    <tr><td>Own trades</td><td class="num">moves through own Takes</td><td class="num">\(= -\Delta C_t^{\text{net}} + \nabla C(\mathbf{q}_{\text{entry}}) \cdot \mathbf{q}_t\)</td></tr>
-    <tr><td>After entry</td><td class="num">\(\mathbf{q}_{\text{entry}} \to \mathbf{q}_m\)</td><td class="num">\(= [\nabla C(\mathbf{q}_m) - \nabla C(\mathbf{q}_{\text{entry}})] \cdot \mathbf{q}_t\)</td></tr>
-  </tbody>
-</table>
-</div>
-
-<h3>Operation 2: Take — Collective Exchange and Individual Redistribution</h3>
+<h3>Operation 2: Take — The Fundamental Equation and System Conservation</h3>
 
 <p>Let \(\mathbf{q} \to \mathbf{q}' = \mathbf{q} + \Delta\mathbf{q}\), where \(\Delta\mathbf{q}\) satisfies the nonneg holdings constraint.</p>
 
-<p>At the collective layer — valid for all signs of \(\Delta C\):</p>
-$$\Delta B_{\text{tot}} = -\Delta C, \qquad \Delta I_{\text{tot}} = +\Delta C, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0$$
+<p><strong>The fundamental equation for the transacting taker</strong> (prior position \(\mathbf{q}_t\)):</p>
 
-<p>Only the taker's balance moves. When \(\Delta C &gt; 0\), the taker pays and collective influence rises. When \(\Delta C = 0\), no balance transfers — the only case that is financially neutral at the collective level — yet the market state shifts and individual powers redistribute. When \(\Delta C &lt; 0\) (guaranteed for any pure liquidation by the structural lemma), the taker receives and their balance strictly increases.</p>
+<div class="axiom">
+  <div class="axiom-label">Fundamental Equation</div>
+  $$\Delta P_t = -\Delta C + \Delta I_t$$
+</div>
 
-<p>At the individual layer:</p>
+<p>where \(\Delta I_t = \nabla C(\mathbf{q}') \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}_t\).</p>
 
-<p><strong>The transacting taker</strong> (prior position \(\mathbf{q}_t\)):</p>
-$$\Delta P_t = -(C(\mathbf{q}') - C(\mathbf{q})) + \nabla C(\mathbf{q}') \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}_t \neq 0 \text{ in general}$$
+<p>This equation governs the relationship between financial neutrality and power neutrality:</p>
 
-<p><strong>The maker</strong> (balance unchanged):</p>
+<ul>
+  <li>\(\Delta C = 0 \implies \Delta P_t = \Delta I_t\) — balance is unchanged, but power equals the repricing of the resulting position</li>
+  <li>\(\Delta P_t = 0 \implies \Delta C = \Delta I_t\) — the cost paid exactly offsets the influence gained</li>
+</ul>
+
+<p>These are distinct conditions. Both are determined by the same trade \(\Delta\mathbf{q}\) through \(C\); neither implies the other.</p>
+
+<p><strong>For the maker</strong> (balance unchanged):</p>
 $$\Delta P_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]$$
 
-<p><strong>All existing takers</strong> \(s \neq t\) (positions and balances unchanged):</p>
+<p><strong>For all existing takers</strong> \(s \neq t\) (positions and balances unchanged):</p>
 $$\Delta P_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s$$
 
-<p>The source of redistribution is the strict convexity of \(C\). For non-trivial trades with \(\Delta C \neq 0\):</p>
+<p><strong>System conservation</strong> (absolute, by the corollary):</p>
 
-$$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) < \nabla C(\mathbf{q}') \cdot \Delta\mathbf{q}$$
+$$\Delta B_{\text{tot}} = -\Delta C, \qquad \Delta I_{\text{tot}} = +\Delta C, \qquad \sum_i \Delta P_i = 0$$
 
-<p>For zero-cost trades (\(\Delta C = 0\)), redistribution still occurs through the repricing of existing positions. In all cases:</p>
+<p>This is not a tendency. It follows unconditionally from the definition of \(C\) and the update rules, for every Take, in every direction, of every size. The strict convexity of \(C\) produces the wedge:</p>
 
-$$\sum_i \Delta P_i = 0 \quad \checkmark$$
+$$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) < \nabla C(\mathbf{q}') \cdot \Delta\mathbf{q} \quad \text{(for non-trivial } \Delta C \neq 0\text{)}$$
+
+<p>This wedge is simultaneously what generates redistribution among individual participants and what produces path-dependent pricing — the same nonlinearity in \(C\) that makes the second unit of any outcome costlier than the first.</p>
 
 <h3>The Complete Taxonomy</h3>
 
@@ -1411,8 +1492,8 @@ $$\sum_i \Delta P_i = 0 \quad \checkmark$$
   <thead><tr><th>Operation</th><th>\(\Delta B_{\text{tot}} + \Delta I_{\text{tot}}\)</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Establishes pool at \(L\); personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\)</td><td>\(\neq 0\) in general</td><td class="num zero">\(0\)</td><td>Taker alone adjusts pool by \(\Delta C\); \(\Delta C = 0\) is neutral, \(\Delta C &lt; 0\) is beneficial, liquidation always \(&lt; 0\)</td></tr>
-    <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all; entire pool distributed</td></tr>
+    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Governed by \(\Delta P_t = -\Delta C + \Delta I_t\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Redistribution between participants</td></tr>
+    <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant (exact)</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
   </tbody>
 </table>
 </div>
@@ -1429,7 +1510,7 @@ $$\sum_i \Delta P_i = 0 \quad \checkmark$$
   <strong>Truth, in Probabilize, is scarce. And scarcity is enforced by this law.</strong>
 </div>
 
-<p>The two constraints on Take enforce two categorically different forms of scarcity, grounded in two dual properties of \(C\). Strict convexity makes buying increasingly expensive — the further the market has already moved, the more each additional unit costs. Strictly positive gradient makes selling always remunerative — every liquidation unconditionally returns balance to the taker, with the nonneg constraint as the only limit. Economic capacity limits how much influence you can acquire. Prior commitment limits how much balance you can recover. These are not symmetric: one is a limit on what you can build, the other is a guarantee of what you can reclaim.</p>
+<p>The fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\) is the constitution of the individual taker at every Take. It says: your power changes by what you receive in repricing, net of what you pay. Financial neutrality (\(\Delta C = 0\)) does not produce power neutrality unless the repricing happens to cancel exactly. Power neutrality (\(\Delta P_t = 0\)) does not require financial neutrality — it requires that cost and repricing be precisely equal. These are distinct geometric conditions on the same trade, linked by the same cost function, enforced by the same conservation law that binds their sum to zero.</p>
 
 <div class="ornament">◆ ◆ ◆</div>
 
@@ -1443,10 +1524,10 @@ $$\sum_i \Delta P_i = 0 \quad \checkmark$$
     <tr><td><strong>Balance</strong></td><td>Your current liquid economic capacity; limits buying; recoverable through liquidation</td></tr>
     <tr><td><strong>Market</strong></td><td>A capitalized, probabilistic question</td></tr>
     <tr><td><strong>Make</strong></td><td>Create a market; set prior probabilities; establish collective pool at \(L\); personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td>Buy or sell a position; taker alone adjusts pool by \(\Delta C\): pay if positive, no exchange if zero (financially neutral), receive if negative (financially beneficial); liquidation always produces \(\Delta C &lt; 0\); balance limits buying, prior commitment limits selling</td></tr>
-    <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — settlement at current prices; entire pool distributed; the maker's instrument for collective dissolution</td></tr>
+    <tr><td><strong>Take</strong></td><td>Buy or sell a position; governed by \(\Delta P_t = -\Delta C + \Delta I_t\); system power conserved absolutely; individual power generically redistributed; \(\Delta C = 0\) is financially neutral but not power-neutral; \(\Delta P_t = 0\) requires \(\Delta C = \Delta I_t\) exactly</td></tr>
+    <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — individual power conserved exactly for every participant; entire pool distributed</td></tr>
     <tr><td><strong>Influence</strong></td><td>Your share of the collective pool at current market prices; backed by maker's foundation and all taker net payments together; individually recoverable through liquidation</td></tr>
-    <tr><td><strong>Power</strong></td><td>\(P = B + I\) — conserved system-wide; redistributed among individuals only by Take; conserved individually by Make and Unmake</td></tr>
+    <tr><td><strong>Power</strong></td><td>\(P = B + I\) — conserved system-wide absolutely (\(\sum_i \Delta P_i = 0\) always); individual conservation holds at Make and Unmake exactly, and at Take only when \(\Delta C = \Delta I_t\)</td></tr>
     <tr><td><strong>Governance</strong></td><td>Decisions sampled from market-implied probabilities, weighted by credibility</td></tr>
   </tbody>
 </table>

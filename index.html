@@ -555,7 +555,7 @@
 
 $$L = -b \cdot \ln(\min_i \, p_i)$$
 
-<p>This is the worst-case subsidy the maker guarantees to pay. The market may only be created if the maker can afford it:</p>
+<p>This is the supremum of losses the maker can approach but never actually incur. The worst case — all trading concentrated on the least likely outcome — demands infinite taker capital and is therefore constitutionally unreachable in any finite society. At every reachable market state the maker's influence is strictly positive, and the loss strictly less than \(L\). But \(L\) is the exact amount required to remain solvent all the way to the limit, and so the market may only be created if the maker can afford it:</p>
 
 $$B_m \geq L$$
 
@@ -918,7 +918,7 @@ $$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C 
 
 $$L = -b \cdot \ln(\min_i\, p_i) = -0.5 \cdot \ln(0.40) = -0.5 \cdot (-0.9163) = \mathbf{0.4581}$$
 
-<p>\(L\) is the maker's maximum possible loss: it grows with \(b\) (deeper liquidity demands more capital) and with the "surprise" of the rarest outcome. At \(b \to 0\), markets become infinitely sharp and cheap; at \(b \to \infty\), infinitely liquid and expensive.</p>
+<p>\(L\) is the supremum of losses the market can approach but never deliver: it grows with \(b\) (deeper liquidity demands more capital) and with the "surprise" of the rarest outcome. At \(b \to 0\), markets become infinitely sharp and cheap; at \(b \to \infty\), infinitely liquid and expensive. The actual loss at any reachable state is strictly less than \(L\), but \(L\) is the exact amount required to remain solvent all the way to the limit.</p>
 
 <p>Alice can afford this — \(B_A = 1.0000 \geq 0.4581\) — and the market is created:</p>
 
@@ -967,7 +967,7 @@ $$B_B \leftarrow 1.0000 - 0.7877 = \mathbf{0.2123}$$
 $$\pi_1 = \frac{0.6 \cdot e^2}{4.8335} = \frac{4.4335}{4.8335} = \mathbf{0.9173} \quad (91.73\%)$$
 $$\pi_2 = \frac{0.4}{4.8335} = \mathbf{0.0827} \quad (8.27\%)$$
 
-<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. At the collective layer: Bob's payment funds a \(+0.7877\) increase in the pool. At the individual layer, the two equations operate:</p>
+<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. At the collective layer: Bob's payment funds a \(+0.7877\) increase in the pool. At the individual layer, the two governing equations operate:</p>
 
 <ul>
   <li><strong>Bob</strong> (transacting taker): \(\Delta P_B = -0.7877 + \Delta I_B\). His new position \((1,0)\) is valued at \(0.9173\); his prior position was \(0\). So \(\Delta I_B = 0.9173\), and \(\Delta P_B = -0.7877 + 0.9173 = +0.1296\).</li>
@@ -1436,6 +1436,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <table>
   <thead><tr><th>Property</th><th>Where Observed</th></tr></thead>
   <tbody>
+    <tr><td>\(L\) is supremum, not maximum: maker's influence strictly positive at every reachable state</td><td>Formal: \(I_m &gt; 0\) for all finite \(\mathbf{q}_m\); worst case requires infinite capital, which is constitutionally unreachable</td></tr>
     <tr><td>Make: personal in scope and effect</td><td>Phase I: Alice's \(P\) unchanged; others do not exist in the operation</td></tr>
     <tr><td>Two governing equations at every Take</td><td>Phases II–III: \(\Delta P_t = -\Delta C + \Delta I_t\) for Bob/Carol; \(\Delta P_i = \Delta I_i\) for Alice</td></tr>
     <tr><td>Non-transacting participants repriced by gradient shift alone</td><td>Phase II: Alice's \(P\) falls from \(1.0000\) to \(0.8787\) without transacting; \(\Delta P_A = \Delta I_A\) exactly</td></tr>
@@ -1465,7 +1466,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <!-- Section VIII -->
 <h2 id="sec-8"><span class="roman">VIII</span>Conservation of Power — Formal Proof</h2>
 
-<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that system conservation is absolute, deriving the two governing equations as the complete account of individual power flow, and characterizing precisely what each condition of interest does and does not imply.</p>
+<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that system conservation is absolute, deriving the two governing equations as the complete account of individual power flow, characterizing precisely what each condition of interest does and does not imply, and proving that the liquidity deposit \(L\) is a supremum approached asymptotically rather than a maximum ever attained.</p>
 
 <h3>The Invariant, Precisely Stated</h3>
 
@@ -1490,6 +1491,28 @@ $$I_{\text{market}} = \left(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \math
   $$I_{\text{market}} = C(\mathbf{q}_m)$$
 </div>
 
+<h3>Structural Lemma: \(L\) is the Supremum of Maker Losses, Not the Maximum</h3>
+
+<p><strong>Claim:</strong> The maker's influence \(I_m = C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m &gt; 0\) strictly at every reachable market state, and \(\sup I_m^{\text{loss}} = L\) is approached but never attained.</p>
+
+<p><strong>Proof.</strong> Suppose trading concentrates on outcome \(\omega_k\), so \(\mathbf{q}_m = q_k \mathbf{e}_k\). As \(q_k \to \infty\):</p>
+
+$$C(q_k \mathbf{e}_k) \approx L + b\ln(p_k) + q_k, \qquad \nabla C_k \to 1$$
+
+<p>Therefore:</p>
+
+$$I_m \approx (L + b\ln p_k + q_k) - q_k = L + b\ln p_k$$
+
+<p>The maker's net loss approaches \(-b\ln p_k = -b\ln(\min_i p_i) = L\) when \(k = \arg\min_i p_i\). However, at any finite \(q_k\):</p>
+
+$$I_m = L + b\ln p_k + b\ln\!\left(1 + \sum_{j \neq k} p_j e^{-q_k/b}\right) > L + b\ln p_k > 0$$
+
+<p>The correction term is strictly positive for all finite \(q_k\), vanishing only in the limit. Reaching \(I_m = 0\) requires \(q_k \to \infty\), which by strict convexity of \(C\) demands infinite cumulative taker capital:</p>
+
+$$\sum_{n=1}^{\infty} \Delta C^{(n)}_{\omega_k} = \infty$$
+
+<p>No finite society with finite initial balances can commit infinite capital. Therefore \(I_m &gt; 0\) strictly at every reachable state, and \(L\) is a supremum approached asymptotically, never a maximum attained. \(\blacksquare\)</p>
+
 <h3>Structural Lemma: Liquidation Always Moves the Market Downward</h3>
 
 <p><strong>Claim:</strong> For any pure liquidation trade — \(\Delta\mathbf{q} \leq \mathbf{0}\) with at least one strict inequality — we have \(\Delta C &lt; 0\) unconditionally.</p>
@@ -1505,7 +1528,7 @@ $$\frac{\partial C}{\partial q_i} = \frac{p_i \cdot e^{q_i/b}}{\sum_j p_j \cdot 
 $$\Delta B_m = -L, \qquad \Delta I_m = +L, \qquad \Delta P_m = 0$$
 $$\Delta B_{\text{tot}} = -L, \qquad \Delta I_{\text{tot}} = +L, \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0$$
 
-<p>No other participant's balance or influence is affected.</p>
+<p>The maker deposits the supremum of their possible losses. Their influence is strictly positive at every reachable state thereafter. No other participant's balance or influence is affected.</p>
 
 <h3>Operation 3: Unmake — Personal \(I \to B\) Conversion for All Simultaneously</h3>
 
@@ -1555,9 +1578,7 @@ $$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C_t^{\text{net}} = \underbr
 
 $$\sum_i \Delta P_i = (-\Delta C + \Delta I_t) + \sum_{i \neq t} \Delta I_i = -\Delta C + \sum_i \Delta I_i = -\Delta C + \Delta C = 0$$
 
-<p>This is absolute — it follows unconditionally from the definition of \(C\) and the update rules, for every Take, in every direction, of every size. The two governing equations are not merely consistent with conservation; together with this identity, they constitute it.</p>
-
-<p>The strict convexity of \(C\) produces the wedge that makes redistribution generic:</p>
+<p>This is absolute — it follows unconditionally from the definition of \(C\) and the update rules, for every Take, in every direction, of every size. The strict convexity of \(C\) produces the wedge that makes redistribution generic:</p>
 
 $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) < \nabla C(\mathbf{q}') \cdot \Delta\mathbf{q} \quad \text{(for non-trivial } \Delta C \neq 0\text{)}$$
 
@@ -1569,7 +1590,7 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
 <table>
   <thead><tr><th>Operation</th><th>\(\Delta B_{\text{tot}} + \Delta I_{\text{tot}}\)</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
-    <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Establishes pool at \(L\); personal \(B \to I\) conversion</td></tr>
+    <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Deposits \(L\) (supremum of losses); establishes pool; personal \(B \to I\) conversion</td></tr>
     <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Taker: \(-\Delta C + \Delta I_t\); others: \(\Delta I_i\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Taker pays to move the market; all others repriced by the gradient it creates</td></tr>
     <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant (exact)</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
   </tbody>
@@ -1588,6 +1609,8 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
   <strong>Truth, in Probabilize, is scarce. And scarcity is enforced by this law.</strong>
 </div>
 
+<p>The maker does not merely ask a question — they capitalize it. The deposit \(L = -b\ln(\min_i p_i)\) is not the maximum loss the maker will suffer. It is the supremum of losses the market can approach but never deliver. The worst case — all probability mass concentrated on the least likely outcome — demands infinite taker capital and is therefore constitutionally unreachable in any finite society. The maker's influence is strictly positive at every reachable state. \(L\) is the exact amount required to remain solvent all the way to the limit — a limit that the system approaches asymptotically, funded one trade at a time, but never crosses.</p>
+
 <p>Power flows toward those whose beliefs are confirmed by subsequent market activity. It flows entirely through Take — never through Make, never through Unmake — and it is governed at every step by \(\Delta P_t = -\Delta C + \Delta I_t\) for the transacting taker and \(\Delta P_i = \Delta I_i\) for every other participant. The taker pays to move the market; everyone else simply watches their positions revalued by the gradient the taker created. The conservation law closes because the total influence created by the taker's payment is exactly redistributed across all participants through repricing. No power is created. No power is destroyed. It flows.</p>
 
 <div class="ornament">◆ ◆ ◆</div>
@@ -1601,7 +1624,7 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
   <tbody>
     <tr><td><strong>Balance</strong></td><td>Your current liquid economic capacity; limits buying; recoverable through liquidation</td></tr>
     <tr><td><strong>Market</strong></td><td>A capitalized, probabilistic question</td></tr>
-    <tr><td><strong>Make</strong></td><td>Create a market; set prior probabilities; establish collective pool at \(L\); personal \(B \to I\) conversion</td></tr>
+    <tr><td><strong>Make</strong></td><td>Create a market; set prior probabilities; deposit \(L\) — the supremum of possible losses, never actually attained; personal \(B \to I\) conversion</td></tr>
     <tr><td><strong>Take</strong></td><td>Buy or sell a position; taker governed by \(\Delta P_t = -\Delta C + \Delta I_t\); all others by \(\Delta P_i = \Delta I_i\); system power conserved absolutely; \(\sum_i \Delta I_i = \Delta C\) closes the law</td></tr>
     <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — individual power conserved exactly for every participant; entire pool distributed</td></tr>
     <tr><td><strong>Influence</strong></td><td>Your share of the collective pool at current market prices; backed by maker's foundation and all taker net payments together; individually recoverable through liquidation</td></tr>

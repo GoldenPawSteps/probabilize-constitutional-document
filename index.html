@@ -697,7 +697,7 @@ $$C(\mathbf{q}_m) = \underbrace{L}_{\text{maker's deposit}} + \underbrace{\sum_k
   $$P = B + I$$
 </div>
 
-<p>Power is the sum of balance and influence. To state the conservation law with full precision requires attending to two distinct layers: the collective layer, where conservation is absolute, and the individual layer, where redistribution is the norm.</p>
+<p>Power is the sum of balance and influence. To state the conservation law with full precision requires attending to two distinct layers: the collective layer, where conservation is absolute, and the individual layer, where redistribution is governed by two precise equations.</p>
 
 <h3>The Collective Layer: Absolute Conservation</h3>
 
@@ -727,37 +727,96 @@ $$\Delta B_{\text{tot}} = -\Delta C > 0, \qquad \Delta I_{\text{tot}} = +\Delta 
 <p><strong>Unmake:</strong> Every participant's influence converts to balance. Collective balance recovers \(C(\mathbf{q}_m)\) exactly.</p>
 $$\Delta B_{\text{tot}} = +C(\mathbf{q}_m), \qquad \Delta I_{\text{tot}} = -C(\mathbf{q}_m), \qquad \Delta B_{\text{tot}} + \Delta I_{\text{tot}} = 0 \checkmark$$
 
-<h3>The Individual Layer: Redistribution Governed by the Fundamental Equation</h3>
+<p>What the conservation law binds, and what it does not:</p>
 
-<p>The collective conservation law is absolute. At the individual level, every Take is governed by a single equation that precisely relates the two conditions that might appear to separate — financial neutrality and power neutrality.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>What conservation binds</th><th>What it does not bind</th></tr></thead>
+  <tbody>
+    <tr><td>\(\sum_i \Delta P_i = 0\) — absolute</td><td>\(\Delta P_t = 0\) for any individual — not required</td></tr>
+    <tr><td>\(\sum_i \Delta B_i = -\Delta C\) — exact</td><td>\(\Delta C = 0\) — not required</td></tr>
+    <tr><td>\(\sum_i \Delta I_i = +\Delta C\) — exact</td><td>\(\Delta I_t = 0\) — not required</td></tr>
+  </tbody>
+</table>
+</div>
 
-<p>For the transacting taker with prior position \(\mathbf{q}_t\) executing \(\Delta\mathbf{q}\), define the influence change as:</p>
+<p>The conservation law is the ceiling and the floor simultaneously — it caps total creation at zero and total destruction at zero. Within that constraint, individual power terms are free to take any values the geometry of the trade produces.</p>
 
-$$\Delta I_t = \nabla C(\mathbf{q}_m + \Delta\mathbf{q}) \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t$$
+<h3>The Individual Layer: Two Governing Equations</h3>
 
-<p>This is the repricing of the taker's entire resulting position at the new gradient. The <strong>fundamental equation</strong> of individual power at a Take is then:</p>
+<p>The collective conservation law is absolute. At the individual level, every Take is governed by <strong>two equations</strong> that together constitute a complete account of how power flows between participants.</p>
+
+<p><strong>For the transacting taker</strong> with prior position \(\mathbf{q}_t\) executing \(\Delta\mathbf{q}\):</p>
 
 <div class="axiom">
-  <div class="axiom-label">Fundamental Equation of Individual Power</div>
+  <div class="axiom-label">Equation 1 — The Taker's Constitution</div>
   $$\Delta P_t = -\Delta C + \Delta I_t$$
 </div>
 
-<p>This single equation governs both conditions of interest:</p>
+<p>where \(\Delta I_t = \nabla C(\mathbf{q}_m + \Delta\mathbf{q}) \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t\).</p>
 
-$$\Delta C = 0 \implies \Delta P_t = \Delta I_t$$
-$$\Delta P_t = 0 \implies \Delta C = \Delta I_t$$
+<p>Balance changes by \(-\Delta C\). Influence changes by \(\Delta I_t\). Both terms are nonzero in general. This is the primary accounting identity for the taker — not a derived result, but the direct definition of what a Take does to a taker's power.</p>
 
-<p>Neither condition implies the other. But they are not free to vary independently — both are determined by the same trade \(\Delta\mathbf{q}\) against the same market state \(\mathbf{q}_m\) and prior position \(\mathbf{q}_t\). Changing \(\Delta\mathbf{q}\) changes both simultaneously through \(C\).</p>
+<p><strong>For every other participant \(i \neq t\)</strong> — both the maker and all existing takers:</p>
 
-<p><strong>\(\Delta C = 0\)</strong> means the market did not move in cost. The taker's balance is unchanged. But the gradient shifted — the implied probabilities are different — and every position in the market is repriced. The taker's power change equals their influence change: \(\Delta P_t = \Delta I_t\). This is generically nonzero; \(\Delta C = 0\) fixes the financial exchange but leaves the repricing term free.</p>
+<div class="axiom">
+  <div class="axiom-label">Equation 2 — Pure Repricing</div>
+  $$\Delta P_i = \Delta I_i$$
+</div>
 
-<p><strong>\(\Delta P_t = 0\)</strong> means the taker's power is unchanged. The cost paid equals the influence gained: \(\Delta C = \Delta I_t\). The balance surrendered was exactly offset by the value of the position acquired at current prices. This is the condition for a "fairly priced" trade in the power-accounting sense. It is a specific geometric condition on the joint structure of \(\Delta\mathbf{q}\), \(\mathbf{q}_t\), and \(\mathbf{q}_m\) — satisfiable by deliberate construction but not the generic outcome.</p>
+<p>Their balance is untouched — \(\Delta B_i = 0\) exactly. Their power change is pure repricing, with no financial component whatsoever. They did not transact. The market moved beneath them, and their positions were revalued by the gradient the taker created.</p>
 
-<p>Total conservation also reveals the structure when each condition is imposed:</p>
+<p>For the maker with residual influence \(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\):</p>
 
-<p><strong>When \(\Delta C = 0\):</strong> \(\sum_i \Delta I_i = 0\). Total influence is unchanged, but this zero is distributed non-trivially — some participants gain influence, others lose it. The taker's \(\Delta I_t\) need not be zero even though the total is. Total conservation constrains the sum; it says nothing about any individual term.</p>
+$$\Delta I_A = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m]$$
 
-<p><strong>When \(\Delta P_t = 0\):</strong> \(\sum_{i \neq t} \Delta P_i = 0\). The total power of all other participants is also unchanged as a sum — but again, individual terms need not be zero. Power circulates among the non-transacting participants even when the transacting taker breaks even.</p>
+<p>For any existing taker \(s \neq t\) with position \(\mathbf{q}_s\):</p>
+
+$$\Delta I_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q}_m)] \cdot \mathbf{q}_s$$
+
+<p>Conservation is verified through these two equations together with the identity \(\sum_i \Delta I_i = \Delta C\):</p>
+
+$$\sum_i \Delta P_i = \underbrace{(-\Delta C + \Delta I_t)}_{\text{taker}} + \underbrace{\sum_{i \neq t} \Delta I_i}_{\text{all others}} = -\Delta C + \sum_i \Delta I_i = -\Delta C + \Delta C = 0 \checkmark$$
+
+<p>The two governing equations are not merely consistent with conservation; together with this identity, they constitute it.</p>
+
+<p>The complete picture at any Take:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Participant</th><th>\(\Delta B\)</th><th>\(\Delta I\)</th><th>\(\Delta P\)</th><th>Source of change</th></tr></thead>
+  <tbody>
+    <tr><td>Transacting taker</td><td class="num">\(-\Delta C\)</td><td class="num">\(\Delta I_t\)</td><td class="num">\(-\Delta C + \Delta I_t\)</td><td>Financial exchange and repricing of resulting position</td></tr>
+    <tr><td>Maker</td><td class="num zero">\(0\)</td><td class="num">\(\Delta I_A\)</td><td class="num">\(\Delta I_A\)</td><td>Pure repricing of residual claim</td></tr>
+    <tr><td>All other takers</td><td class="num zero">\(0\)</td><td class="num">\(\Delta I_s\)</td><td class="num">\(\Delta I_s\)</td><td>Pure repricing of held positions</td></tr>
+    <tr><td><strong>System</strong></td><td class="num">\(-\Delta C\)</td><td class="num">\(+\Delta C\)</td><td class="num zero">\(0\)</td><td>Conservation</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>How Beliefs Are Confirmed by Subsequent Activity</h3>
+
+<p>For a non-transacting participant \(s\) holding position \(\mathbf{q}_s\):</p>
+
+$$\Delta P_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q}_m)] \cdot \mathbf{q}_s$$
+
+<p>This is the dot product of the gradient shift with their position vector. Its sign and magnitude depend entirely on whether subsequent trades move the implied probabilities toward or away from the outcomes they hold.</p>
+
+<p>If participant \(s\) holds \(\omega_i\) and a subsequent taker buys \(\omega_i\): \(\pi_i\) rises, \(\frac{\partial C}{\partial q_i}\) rises, \(\Delta P_s &gt; 0\).</p>
+
+<p>If participant \(s\) holds \(\omega_i\) and a subsequent taker buys \(\omega_j \neq i\): \(\pi_i\) falls, \(\Delta P_s &lt; 0\).</p>
+
+<p>Power flows continuously and automatically toward positions that subsequent market activity validates. There is no resolution event, no judgment, no oracle. The market reprices at every Take, and power redistributes with every reprice.</p>
+
+<h3>The Taker's Constitution and Its Two Conditions</h3>
+
+<p>The taker's equation \(\Delta P_t = -\Delta C + \Delta I_t\) directly governs the two conditions of interest:</p>
+
+<p><strong>\(\Delta C = 0 \implies \Delta P_t = \Delta I_t\).</strong> Financial neutrality eliminates the financial term. What remains is pure repricing. The taker's power changes by exactly the amount their resulting position gained or lost in value when the gradient shifted. This is generically nonzero — it is zero only if the new gradient values the resulting position identically to how the old gradient valued the prior position, a geometric coincidence.</p>
+
+<p><strong>\(\Delta P_t = 0 \implies \Delta C = \Delta I_t\).</strong> Power neutrality requires the financial term to equal the repricing term exactly. The taker pays precisely what the market says their position is worth in the new state, net of the old. This is the condition for a "fairly priced" trade in the power-accounting sense — a distinct geometric condition, not a structural guarantee.</p>
+
+<p>Neither condition implies the other. Both are functions of the same trade \(\Delta\mathbf{q}\), linked by the same equation. Changing \(\Delta\mathbf{q}\) changes both simultaneously through \(C\).</p>
 
 <p><strong>Make</strong> is personal in both scope and effect. The maker pays \(L\) from balance and gains exactly \(L\) in influence. No other participant exists in this operation.</p>
 
@@ -765,34 +824,24 @@ $$\Delta P_m = 0 \quad \text{(maker only; others untouched)}$$
 
 <p><strong>Unmake</strong> is social in scope but personal in effect. For every participant \(i\): \(\Delta B_i = +I_i\), \(\Delta I_i = -I_i\), \(\Delta P_i = 0\). Individual conservation holds exactly at Unmake.</p>
 
-<p>The two levels of conservation are therefore:</p>
+<p>The two levels of conservation:</p>
 
 <div class="table-wrap">
 <table>
   <thead><tr><th>Level</th><th>Statement</th><th>Status</th></tr></thead>
   <tbody>
-    <tr><td><strong>System</strong></td><td>\(\sum_i \Delta P_i = 0\) at every Take</td><td><strong>Absolute</strong> — no exceptions, no edge cases</td></tr>
-    <tr><td><strong>Individual</strong></td><td>\(\Delta P_i \neq 0\) at most Takes</td><td><strong>Generic</strong> — zero requires \(\Delta C = \Delta I_t\) exactly</td></tr>
+    <tr><td><strong>System</strong></td><td>\(\sum_i \Delta P_i = 0\) at every Take</td><td><strong>Absolute</strong> — no exceptions</td></tr>
+    <tr><td><strong>Individual taker</strong></td><td>\(\Delta P_t = -\Delta C + \Delta I_t\); generically \(\neq 0\)</td><td><strong>Primary identity</strong> — zero requires \(\Delta C = \Delta I_t\) exactly</td></tr>
+    <tr><td><strong>Non-transacting</strong></td><td>\(\Delta P_i = \Delta I_i\); generically \(\neq 0\)</td><td><strong>Pure repricing</strong> — no financial component</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>The lifecycle of a position makes this concrete:</p>
+<p>The lifecycle of a position:</p>
 
-$$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C > 0 \\ \text{no exchange if } \Delta C = 0 \\ \text{receive if } \Delta C < 0}} \;\longrightarrow\; \underbrace{\text{Hold } \mathbf{q}_t}_{\substack{\text{influence repriced} \\ \text{from entry forward}}} \;\longrightarrow\; \underbrace{\text{Receive } \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t}_{\text{Unmake: individual conservation exact}}$$
+$$\underbrace{B_t \leftarrow B_t - \Delta C}_{\substack{\text{pay if } \Delta C > 0 \\ \text{no exchange if } \Delta C = 0 \\ \text{receive if } \Delta C < 0}} \;\longrightarrow\; \underbrace{\text{Hold } \mathbf{q}_t}_{\substack{\text{repriced at every} \\ \text{subsequent Take}}} \;\longrightarrow\; \underbrace{\text{Receive } \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t}_{\text{Unmake: individual conservation exact}}$$
 
-<div class="table-wrap">
-<table>
-  <thead><tr><th>Operation</th><th>\(\Delta B_{\text{tot}} + \Delta I_{\text{tot}}\)</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Governed by \(\Delta P_t = -\Delta C + \Delta I_t\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Redistribution between participants</td></tr>
-    <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant (exact)</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Take is the only operation where power <strong>crosses between participants</strong>. Make creates the arena. Unmake dissolves it. Take is where the actual epistemic and economic contest occurs.</p>
+<p>Take is the only operation where power <strong>crosses between participants</strong>. Make creates the arena. Unmake dissolves it. Take is where the actual epistemic and economic contest occurs: the taker pays to move the market; everyone else simply watches their positions revalued by the gradient the taker created.</p>
 
 <h3>The Constitutional Principle</h3>
 
@@ -918,7 +967,14 @@ $$B_B \leftarrow 1.0000 - 0.7877 = \mathbf{0.2123}$$
 $$\pi_1 = \frac{0.6 \cdot e^2}{4.8335} = \frac{4.4335}{4.8335} = \mathbf{0.9173} \quad (91.73\%)$$
 $$\pi_2 = \frac{0.4}{4.8335} = \mathbf{0.0827} \quad (8.27\%)$$
 
-<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. At the collective layer: Bob's payment funds a \(+0.7877\) increase in the pool. The pool now totals \(C(1,0) = 1.2458 = L + \Delta C_B = 0.4581 + 0.7877\). At the individual layer: Alice's maker influence falls from \(0.4581\) to \(0.3285\), transferring power to Bob without Alice transacting.</p>
+<p>Bob's committed capital has driven the market-implied probability of "Yes" from <strong>60% to 91.73%</strong>. At the collective layer: Bob's payment funds a \(+0.7877\) increase in the pool. At the individual layer, the two equations operate:</p>
+
+<ul>
+  <li><strong>Bob</strong> (transacting taker): \(\Delta P_B = -0.7877 + \Delta I_B\). His new position \((1,0)\) is valued at \(0.9173\); his prior position was \(0\). So \(\Delta I_B = 0.9173\), and \(\Delta P_B = -0.7877 + 0.9173 = +0.1296\).</li>
+  <li><strong>Alice</strong> (non-transacting maker): \(\Delta P_A = \Delta I_A\). Her residual claim falls from \(0.4581\) to \(1.2458 - 0.9173 = 0.3285\). So \(\Delta P_A = 0.3285 - 0.4581 = -0.1296\).</li>
+</ul>
+
+<p>Alice's power did not change because she transacted — it changed because the gradient moved, and her position was repriced beneath her.</p>
 
 <div class="phase">
   <div class="phase-tag">Step 3</div>
@@ -933,7 +989,7 @@ $$C(1,1) = 0.4581 + 0.5 \cdot \ln\!\left(e^2 \cdot (0.6 + 0.4)\right) = 0.4581 +
 
 <p><strong>Carol's trade cost:</strong> \(\Delta C_C = 1.4581 - 1.2458 = \mathbf{0.2123}\)</p>
 
-<p>Pure buying (\(\Delta C &gt; 0\)): Carol pays \(0.2123\) to the market. The pool now totals \(C(1,1) = 1.4581 = 0.4581 + 0.7877 + 0.2123\). Carol entered at state \((1,0)\). The market's prior history, including Bob's distortion to 91.73%, is not her inheritance. She paid \(0.2123\) for a position immediately worth \(\nabla C(1,1) \cdot (0,1) = 0.4000\): her own-Take drift is \(+0.1877\), sourced from Bob's share of the pool shrinking as the gradient was restored.</p>
+<p>Pure buying (\(\Delta C &gt; 0\)): Carol pays \(0.2123\) to the market. The pool now totals \(C(1,1) = 1.4581 = 0.4581 + 0.7877 + 0.2123\). Carol entered at state \((1,0)\). The market's prior history, including Bob's distortion to 91.73%, is not her inheritance. By the taker's constitution: \(\Delta P_C = -0.2123 + (0.4000 - 0) = +0.1877\). By the non-transacting equation: Bob's position \((1,0)\) is now valued at \(0.6000\) instead of \(0.9173\), so \(\Delta P_B = 0.6000 - 0.9173 = -0.3173\).</p>
 
 $$B_C \leftarrow 1.0000 - 0.2123 = \mathbf{0.7877}$$
 
@@ -974,21 +1030,21 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 </div>
 <div class="scroll-hint show">← scroll horizontally →</div>
 
-<p>Make and Unmake leave every row unchanged — both conserve individual power. Both Takes shift individual rows while holding the column sum fixed by the absolute system conservation law. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
+<p>Make and Unmake leave every row unchanged. Both Takes shift individual rows while holding the column sum fixed by the absolute system conservation law. The Unmake row is identical to the row above it because Unmake converts; it does not redistribute.</p>
 
 <div class="table-wrap">
 <table>
   <thead><tr><th>Agent</th><th>Paid</th><th>Received</th><th>Net \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td>Alice</td><td class="num">0.4581</td><td class="num">0.4581</td><td class="num zero"><strong>0</strong></td><td>Market symmetric at close</td></tr>
-    <tr><td>Bob</td><td class="num">0.7877</td><td class="num">0.6000</td><td class="num neg"><strong>−0.1877</strong></td><td>Paid more than current value: price-impact cost settled at Takes</td></tr>
-    <tr><td>Carol</td><td class="num">0.2123</td><td class="num">0.4000</td><td class="num pos"><strong>+0.1877</strong></td><td>Paid less than current value: discount harvested at Takes</td></tr>
+    <tr><td>Bob</td><td class="num">0.7877</td><td class="num">0.6000</td><td class="num neg"><strong>−0.1877</strong></td><td>\(\Delta P = -\Delta C + \Delta I_t\); repricing settled against him</td></tr>
+    <tr><td>Carol</td><td class="num">0.2123</td><td class="num">0.4000</td><td class="num pos"><strong>+0.1877</strong></td><td>\(\Delta P = -\Delta C + \Delta I_t\); repricing settled for her</td></tr>
   </tbody>
 </table>
 </div>
 
 <div class="pullquote">
-  Power flows toward those whose beliefs are confirmed by subsequent market activity — and it flows entirely through Take.
+  Power flows toward those whose beliefs are confirmed by subsequent market activity — governed at every step by \(\Delta P_t = -\Delta C + \Delta I_t\) for the transacting taker and \(\Delta P_i = \Delta I_i\) for everyone else.
 </div>
 
 <div class="ornament">◆ ◆ ◆</div>
@@ -996,7 +1052,7 @@ $$\text{Total: } 1.0000 + 0.8123 + 1.1877 = \mathbf{3.0000} \checkmark$$
 <!-- Section VII -->
 <h2 id="sec-7"><span class="roman">VII</span>Extended Simulation — The Infrastructure Bill Market</h2>
 
-<p>The preceding example established the core mechanics with three participants and a symmetric conclusion. The following simulation introduces additional phenomena: <strong>capital enforcement against underfunded trades</strong>, the <strong>maker's subsidy as a structural feature</strong> revealed by premature closure, <strong>path-dependent pricing</strong> demonstrated rigorously, and the two missing cases of Take — <strong>zero-cost mixed trading</strong> and <strong>liquidation</strong> — demonstrated with full power accounting.</p>
+<p>The preceding example established the core mechanics with three participants and a symmetric conclusion. The following simulation introduces additional phenomena: <strong>capital enforcement against underfunded trades</strong>, the <strong>maker's subsidy as a structural feature</strong> revealed by premature closure, <strong>path-dependent pricing</strong> demonstrated rigorously, and the two missing cases of Take — <strong>zero-cost mixed trading</strong> and <strong>liquidation</strong> — demonstrated with full power accounting through both governing equations.</p>
 
 <h3>The Scenario</h3>
 <p><strong>Market Question:</strong> <em>"Will the Infrastructure Bill Pass?"</em></p>
@@ -1047,7 +1103,14 @@ $$\Delta C_{\text{Bob}} = \mathbf{0.5231}, \qquad B_B \leftarrow 1.0000 - 0.5231
 
 $$\pi_1 = \mathbf{0.6444}, \qquad \pi_2 = \mathbf{0.3556}$$
 
-<p>The collective pool grows to \(C(1,0) = 1.4394 = 0.9163 + 0.5231\). Alice's maker influence falls from \(0.9163\) to \(0.7950\), her power from \(1.0000\) to \(0.8787\).</p>
+<p>The collective pool grows to \(C(1,0) = 1.4394 = 0.9163 + 0.5231\). The two governing equations:</p>
+
+<ul>
+  <li><strong>Bob</strong> (transacting taker): \(\Delta P_B = -0.5231 + (0.6444 - 0) = +0.1213\)</li>
+  <li><strong>Alice</strong> (non-transacting maker): \(\Delta P_A = \Delta I_A = 0.7950 - 0.9163 = -0.1213\)</li>
+</ul>
+
+<p>Alice's power fell by \(0.1213\) because the gradient moved and her residual claim was repriced downward. She did not transact. The market moved beneath her.</p>
 
 <p><strong>Power conservation check:</strong></p>
 
@@ -1082,7 +1145,15 @@ $$\Delta C_{\text{Carol}} = \mathbf{0.4769}, \qquad B_C \leftarrow 1.0000 - 0.47
 
 $$\pi_1 = \mathbf{0.4000}, \qquad \pi_2 = \mathbf{0.6000}$$
 
-<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid \(0.4769\) for a position immediately worth \(0.6000\): \(\Delta P_C^{\text{own}} = +0.1231\), sourced from Bob's share of the pool shrinking as the gradient was restored. The market returns exactly to the prior, and Alice's maker influence is restored to \(1.9163 - 1.0000 = 0.9163 = L\), her power recovering fully to \(1.0000\).</p>
+<p>The two governing equations:</p>
+
+<ul>
+  <li><strong>Carol</strong> (transacting taker): \(\Delta P_C = -0.4769 + (0.6000 - 0) = +0.1231\)</li>
+  <li><strong>Bob</strong> (non-transacting taker): \(\Delta P_B = \Delta I_B = (0.4000 - 0.6444) \times 1 = -0.2444\)</li>
+  <li><strong>Alice</strong> (non-transacting maker): \(\Delta P_A = \Delta I_A = 0.9163 - 0.7950 = +0.1213\)</li>
+</ul>
+
+<p>Carol entered at state \((1,0)\). The market's prior history is not her inheritance. She paid to move the market; Bob watched his position devalued as the gradient restored to the prior; Alice's residual claim recovered as the gradient moved back.</p>
 
 <p><strong>Power conservation check:</strong></p>
 
@@ -1143,7 +1214,7 @@ $$\Delta C^{(2)}_{\omega_1} = C(2,0) - C(1,0) = 2.1848 - 1.4394 = \mathbf{0.7454
 </table>
 </div>
 
-<p>Same outcome. Same quantity. The second unit costs <strong>42.5% more</strong> than the first. The cost function is strictly convex: each unit purchased shifts \(\pi_1\) upward, making further purchases more expensive. This convexity is also what produces the wedge in \(\Delta P_t = -\Delta C + \Delta I_t\) — the same mechanism that makes the second unit costlier is precisely what prevents \(\Delta P_t = 0\) in the generic case.</p>
+<p>Same outcome. Same quantity. The second unit costs <strong>42.5% more</strong> than the first. The cost function is strictly convex: each unit purchased shifts \(\pi_1\) upward, making further purchases more expensive. This convexity is also what produces the wedge in \(\Delta P_t = -\Delta C + \Delta I_t\) that drives power redistribution — the same nonlinearity that makes the second unit costlier is precisely what makes individual power changes generically nonzero.</p>
 
 <div class="phase">
   <div class="phase-tag">Phase VI</div>
@@ -1162,12 +1233,16 @@ $$\Delta C^{(2)}_{\omega_1} = C(2,0) - C(1,0) = 2.1848 - 1.4394 = \mathbf{0.7454
 
 <p><strong>Balance constraint:</strong> \(B_B \geq 0\ \checkmark\) — trivially satisfied; would hold even if \(B_B = 0\).</p>
 
-<p>\(\Delta C = 0\) fixes \(\Delta B_B = 0\) exactly. By the fundamental equation: \(\Delta P_B = -\Delta C + \Delta I_B = \Delta I_B\). The gradient shifts from \((0.40, 0.60)\) to \((0.1472, 0.8528)\); Bob's resulting position \((0,\ 0.3521)\) is repriced at the new gradient.</p>
+<p>By the taker's constitution with \(\Delta C = 0\): \(\Delta P_B = \Delta I_B\).</p>
 
-$$\Delta I_B = 0.8528 \times 0.3521 - 0.40 \times 1 - 0.60 \times 0 = 0.3002 - 0.4000 = -0.0998$$
+<p>The gradient shifts from \((0.40, 0.60)\) to \((0.1472, 0.8528)\). Bob's resulting position is \((0,\ 0.3521)\):</p>
+
+$$\Delta I_B = 0.8528 \times 0.3521 - (0.40 \times 1 + 0.60 \times 0) = 0.3002 - 0.4000 = -0.0998$$
 $$\Delta P_B = -0 + (-0.0998) = \mathbf{-0.0998}$$
 
-<p>Bob paid nothing. Bob received nothing. Yet his power fell by \(0.0998\). This confirms that \(\Delta C = 0\) does not imply \(\Delta P_t = 0\) — the gradient shifted and the repricing term \(\Delta I_t\) was nonzero. Financial neutrality is not power neutrality.</p>
+<p>\(\Delta C = 0\) fixed \(\Delta B_B = 0\) exactly. It did not fix \(\Delta I_B\) — because the gradient shifted and Bob's resulting position was valued at new prices. Financial neutrality is not power neutrality.</p>
+
+<p>For Alice and Carol (non-transacting, \(\Delta P_i = \Delta I_i\)): the gradient shift reprices their positions, flowing \(0.2528\) units of power to Carol from Alice and Bob jointly.</p>
 
 <div class="table-wrap">
 <table>
@@ -1182,7 +1257,7 @@ $$\Delta P_B = -0 + (-0.0998) = \mathbf{-0.0998}$$
 </table>
 </div>
 
-<p>\(0.2528\) units of power flowed to Carol from Alice and Bob jointly, with no balance changing hands. Total conservation is absolute; the zero is distributed non-trivially — Carol gains while Alice and Bob lose.</p>
+<p>Bob paid nothing. Bob received nothing. Power flowed anyway — because the market moved, and Alice and Carol's positions were repriced by the gradient Bob's trade created.</p>
 
 <h4>Alternative B — Bob's Full Liquidation (\(\Delta C &lt; 0\))</h4>
 
@@ -1192,16 +1267,18 @@ $$\Delta P_B = -0 + (-0.0998) = \mathbf{-0.0998}$$
 
 $$\Delta C = C(0, 1) - C(1,1) = 1.6245 - 1.9163 = \mathbf{-0.2918}$$
 
-<p><strong>Balance constraint:</strong> \(B_B \geq -0.2918\ \checkmark\) — trivially satisfied; the market pays Bob. Would hold even if \(B_B = 0\).</p>
+<p><strong>Balance constraint:</strong> trivially satisfied; would hold even if \(B_B = 0\).</p>
 
 $$B_B \leftarrow 0.4769 + 0.2918 = \mathbf{0.7687}$$
 
-<p>Bob is richer. By the fundamental equation: \(\Delta P_B = -\Delta C + \Delta I_B = +0.2918 + \Delta I_B\).</p>
+<p>By the taker's constitution: \(\Delta P_B = -(-0.2918) + \Delta I_B = +0.2918 + \Delta I_B\).</p>
 
-$$\Delta I_B = \nabla C(0,1) \cdot (0,0) - \nabla C(1,1) \cdot (1,0) = 0 - 0.4000 = -0.4000$$
+<p>Bob's resulting position is \((0,0)\): \(I_B\) after \(= 0\). Bob's prior influence was \(0.4000\).</p>
+
+$$\Delta I_B = 0 - 0.4000 = -0.4000$$
 $$\Delta P_B = +0.2918 + (-0.4000) = \mathbf{-0.1082}$$
 
-<p>Bob's balance increased by \(0.2918\). His power nonetheless fell by \(0.1082\) — because the influence he surrendered (\(0.4000\)) was worth more than what he recovered in balance (\(0.2918\)). The fundamental equation makes this transparent: \(\Delta B_B = +0.2918\) and \(\Delta I_B = -0.4000\) combine to give \(\Delta P_B = -0.1082\).</p>
+<p>The equation makes this transparent: the financial term returned \(+0.2918\) to Bob's balance, but the repricing term removed \(0.4000\) from his influence — because he surrendered a position worth \(0.4000\) at current prices. Financial benefit and power loss are not contradictory. They are two separate terms in the same equation.</p>
 
 <div class="table-wrap">
 <table>
@@ -1228,9 +1305,7 @@ $$\Delta P_B = +0.2918 + (-0.4000) = \mathbf{-0.1082}$$
 </table>
 </div>
 
-<p>The fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\) makes both results transparent. In Alternative A, \(\Delta C = 0\) so \(\Delta P_B = \Delta I_B\) directly. In Alternative B, \(\Delta C &lt; 0\) returns balance but \(\Delta I_B\) falls further; the net is negative. Neither case achieves \(\Delta P_B = 0\), which would require \(\Delta C = \Delta I_t\) — a distinct geometric condition that was not met in either trade.</p>
-
-<p>In both cases \(\sum_i \Delta P_i = 0\): absolute, without exception. The total remained \(4.0000\) throughout.</p>
+<p>The taker's constitution makes both results immediate. In Alternative A, \(\Delta C = 0\) so \(\Delta P_B = \Delta I_B\) — the financial term vanishes and pure repricing remains. In Alternative B, the financial term is positive (\(+0.2918\)) but the repricing term is more negative (\(-0.4000\)); the net is negative. In neither case is \(\Delta P_B = 0\), which would require \(\Delta C = \Delta I_t\). In both cases \(\sum_i \Delta P_i = 0\): absolute, without exception.</p>
 
 <h3>Governance Snapshot</h3>
 <p>At market state \(\mathbf{q}_m = (1, 1)\), before any Phase VI trade or Unmake:</p>
@@ -1307,7 +1382,7 @@ $$B_C \leftarrow 0.5231 + 0.60 \times 1 = \mathbf{1.1231}$$
 </table>
 </div>
 
-<p>Bob's subsequent term: \([\nabla C(1,1) - \nabla C(1,0)] \cdot (1,0) = (0.4000 - 0.6444) \times 1 = -0.2444\). Carol's subsequent term is zero — no trades followed her entry.</p>
+<p>Bob's subsequent term: \([\nabla C(1,1) - \nabla C(1,0)] \cdot (1,0) = (0.4000 - 0.6444) \times 1 = -0.2444\) — pure repricing of his unchanged position by Carol's subsequent trade, governed by \(\Delta P_i = \Delta I_i\). Carol's subsequent term is zero — no trades followed her entry.</p>
 
 <h3>Variant — Early Unmake After Bob Alone</h3>
 
@@ -1353,7 +1428,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 </table>
 </div>
 
-<p>Carol's entry was constitutionally necessary for Alice to recover her initial power. The system does not guarantee that cancellation. It only guarantees conservation.</p>
+<p>Carol's entry was constitutionally necessary for Alice to recover her initial power. Without it, Alice bears the full cost of Bob's informed trade permanently. The system does not guarantee that cancellation. It only guarantees conservation.</p>
 
 <h3>Properties Demonstrated</h3>
 
@@ -1362,14 +1437,15 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
   <thead><tr><th>Property</th><th>Where Observed</th></tr></thead>
   <tbody>
     <tr><td>Make: personal in scope and effect</td><td>Phase I: Alice's \(P\) unchanged; others do not exist in the operation</td></tr>
-    <tr><td>Take: immediately reprices maker's influence</td><td>Phase II: Alice's \(P\) falls from \(1.0000\) to \(0.8787\) without transacting</td></tr>
-    <tr><td>Fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\)</td><td>Phase VI: both cases computed transparently through this equation</td></tr>
-    <tr><td>\(\Delta C = 0\) implies \(\Delta P_t = \Delta I_t\), not \(\Delta P_t = 0\)</td><td>Phase VI(a): Bob pays nothing; power still falls by \(0.0998\) because gradient shifted</td></tr>
-    <tr><td>\(\Delta P_t = 0\) requires \(\Delta C = \Delta I_t\), a distinct geometric condition</td><td>Phase VI: neither case satisfies this; zero is possible but requires deliberate construction</td></tr>
-    <tr><td>System conservation \(\sum_i \Delta P_i = 0\): absolute</td><td>Every phase: column sum \(= 4.0000\) without exception</td></tr>
-    <tr><td>\(\Delta C = 0\): financially neutral; total influence unchanged; individual repricing nonzero</td><td>Phase VI(a): \(\sum_i \Delta I_i = 0\) but individual \(\Delta I_i \neq 0\)</td></tr>
+    <tr><td>Two governing equations at every Take</td><td>Phases II–III: \(\Delta P_t = -\Delta C + \Delta I_t\) for Bob/Carol; \(\Delta P_i = \Delta I_i\) for Alice</td></tr>
+    <tr><td>Non-transacting participants repriced by gradient shift alone</td><td>Phase II: Alice's \(P\) falls from \(1.0000\) to \(0.8787\) without transacting; \(\Delta P_A = \Delta I_A\) exactly</td></tr>
+    <tr><td>Taker's constitution \(\Delta P_t = -\Delta C + \Delta I_t\) — primary identity</td><td>Phase VI: both cases computed directly through this equation</td></tr>
+    <tr><td>\(\Delta C = 0 \implies \Delta P_t = \Delta I_t\) — financial neutrality leaves repricing term free</td><td>Phase VI(a): Bob pays nothing; power falls by \(0.0998\) because gradient shifted</td></tr>
+    <tr><td>\(\Delta P_t = 0 \implies \Delta C = \Delta I_t\) — a distinct geometric condition</td><td>Phase VI: neither case satisfies this; it requires deliberate construction</td></tr>
+    <tr><td>System conservation \(\sum_i \Delta P_i = 0\): absolute</td><td>Every phase: \(P_{\text{tot}} = 4.0000\) without exception</td></tr>
+    <tr><td>Conservation closed by \(\sum_i \Delta I_i = \Delta C\)</td><td>Proof section: taker pays; total influence rises by exactly what the taker paid</td></tr>
     <tr><td>\(\Delta C &lt; 0\): financially beneficial; balance increases, power may still fall</td><td>Phase VI(b): Bob receives \(0.2918\), yet loses \(0.1082\) in power</td></tr>
-    <tr><td>\(\Delta B\) and \(\Delta P\) are independent quantities</td><td>Phase VI side-by-side: governed by \(\Delta P_t = -\Delta C + \Delta I_t\)</td></tr>
+    <tr><td>\(\Delta B\) and \(\Delta P\) are independent — both terms in the same equation</td><td>Phase VI side-by-side: financial term and repricing term operate independently</td></tr>
     <tr><td>Liquidation always moves market downward</td><td>Formal: \(\nabla C &gt; 0\) everywhere; pure selling strictly decreases \(C\); \(\Delta C &lt; 0\) unconditionally</td></tr>
     <tr><td>\(I_{\text{tot}}\) traces market depth exactly</td><td>Both ledgers: \(I_{\text{tot}} = C(\mathbf{q}_m)\) at every row</td></tr>
     <tr><td>\(B_{\text{tot}}\) and \(I_{\text{tot}}\) are mirror images</td><td>Both ledgers: their sum is \(4.0000\) at every row</td></tr>
@@ -1379,7 +1455,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
     <tr><td>Carol's entry necessary for Alice's full recovery</td><td>Lifecycle comparison: without Carol, Alice bears \(-0.1213\) permanently</td></tr>
     <tr><td>Capital-enforced belief</td><td>Phase IV: Dave's trade rejected; belief exists but carries zero market power</td></tr>
     <tr><td>Path-dependent pricing</td><td>Phase V: two sequential 1-unit trades on \(\omega_1\) — first costs \(0.5231\), second costs \(0.7454\) — 42.5% higher</td></tr>
-    <tr><td>Convexity is source of redistribution</td><td>The wedge in \(\Delta P_t = -\Delta C + \Delta I_t\) is produced by the same convexity that makes the second unit costlier</td></tr>
+    <tr><td>Convexity drives the wedge in the taker's constitution</td><td>The same nonlinearity that makes the second unit costlier is what makes \(\Delta P_t \neq 0\) generic</td></tr>
   </tbody>
 </table>
 </div>
@@ -1389,7 +1465,7 @@ $$B_A \leftarrow 0.0837 + 0.7950 = \mathbf{0.8787}, \qquad B_B \leftarrow 0.4769
 <!-- Section VIII -->
 <h2 id="sec-8"><span class="roman">VIII</span>Conservation of Power — Formal Proof</h2>
 
-<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that system conservation is absolute and characterizing the individual layer through the fundamental equation.</p>
+<p>The preceding simulations verified conservation numerically, step by step. What follows elevates that verification to a proof — establishing that system conservation is absolute, deriving the two governing equations as the complete account of individual power flow, and characterizing precisely what each condition of interest does and does not imply.</p>
 
 <h3>The Invariant, Precisely Stated</h3>
 
@@ -1447,43 +1523,45 @@ $$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C_t^{\text{net}} = \underbr
 
 <p>Before taker \(t\) holds any position, \(\mathbf{q}_t = \mathbf{0}\), so all prior market movements produce \(\Delta P_t^{\text{past}} = 0\). The market's history before entry is constitutionally irrelevant to settlement.</p>
 
-<h3>Operation 2: Take — The Fundamental Equation and System Conservation</h3>
+<h3>Operation 2: Take — The Two Governing Equations and System Conservation</h3>
 
 <p>Let \(\mathbf{q} \to \mathbf{q}' = \mathbf{q} + \Delta\mathbf{q}\), where \(\Delta\mathbf{q}\) satisfies the nonneg holdings constraint.</p>
 
-<p><strong>The fundamental equation for the transacting taker</strong> (prior position \(\mathbf{q}_t\)):</p>
+<p><strong>Equation 1 — The transacting taker</strong> (prior position \(\mathbf{q}_t\)):</p>
 
 <div class="axiom">
-  <div class="axiom-label">Fundamental Equation</div>
+  <div class="axiom-label">The Taker's Constitution</div>
   $$\Delta P_t = -\Delta C + \Delta I_t$$
 </div>
 
 <p>where \(\Delta I_t = \nabla C(\mathbf{q}') \cdot (\mathbf{q}_t + \Delta\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}_t\).</p>
 
-<p>This equation governs the relationship between financial neutrality and power neutrality:</p>
+<p>This is the primary accounting identity — not a derived result. The financial term \(-\Delta C\) captures the balance exchange. The repricing term \(\Delta I_t\) captures the revaluation of the resulting position. Both are determined by the same \(\Delta\mathbf{q}\) through \(C\).</p>
 
-<ul>
-  <li>\(\Delta C = 0 \implies \Delta P_t = \Delta I_t\) — balance is unchanged, but power equals the repricing of the resulting position</li>
-  <li>\(\Delta P_t = 0 \implies \Delta C = \Delta I_t\) — the cost paid exactly offsets the influence gained</li>
-</ul>
+<p><strong>Equation 2 — Every non-transacting participant \(i \neq t\)</strong>:</p>
 
-<p>These are distinct conditions. Both are determined by the same trade \(\Delta\mathbf{q}\) through \(C\); neither implies the other.</p>
+<div class="axiom">
+  <div class="axiom-label">Pure Repricing</div>
+  $$\Delta P_i = \Delta I_i, \qquad \Delta B_i = 0$$
+</div>
 
-<p><strong>For the maker</strong> (balance unchanged):</p>
-$$\Delta P_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]$$
+<p>For the maker: \(\Delta I_A = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]\).</p>
 
-<p><strong>For all existing takers</strong> \(s \neq t\) (positions and balances unchanged):</p>
-$$\Delta P_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s$$
+<p>For each existing taker \(s \neq t\): \(\Delta I_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s\).</p>
 
-<p><strong>System conservation</strong> (absolute, by the corollary):</p>
+<p>Their power changes are pure repricing. They did not transact. The gradient moved beneath them.</p>
 
-$$\Delta B_{\text{tot}} = -\Delta C, \qquad \Delta I_{\text{tot}} = +\Delta C, \qquad \sum_i \Delta P_i = 0$$
+<p><strong>System conservation</strong> follows from both equations together with the identity \(\sum_i \Delta I_i = \Delta C\):</p>
 
-<p>This is not a tendency. It follows unconditionally from the definition of \(C\) and the update rules, for every Take, in every direction, of every size. The strict convexity of \(C\) produces the wedge:</p>
+$$\sum_i \Delta P_i = (-\Delta C + \Delta I_t) + \sum_{i \neq t} \Delta I_i = -\Delta C + \sum_i \Delta I_i = -\Delta C + \Delta C = 0$$
+
+<p>This is absolute — it follows unconditionally from the definition of \(C\) and the update rules, for every Take, in every direction, of every size. The two governing equations are not merely consistent with conservation; together with this identity, they constitute it.</p>
+
+<p>The strict convexity of \(C\) produces the wedge that makes redistribution generic:</p>
 
 $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) < \nabla C(\mathbf{q}') \cdot \Delta\mathbf{q} \quad \text{(for non-trivial } \Delta C \neq 0\text{)}$$
 
-<p>This wedge is simultaneously what generates redistribution among individual participants and what produces path-dependent pricing — the same nonlinearity in \(C\) that makes the second unit of any outcome costlier than the first.</p>
+<p>For zero-cost trades (\(\Delta C = 0\)), redistribution still occurs through the repricing terms. In all cases, \(\sum_i \Delta P_i = 0\).</p>
 
 <h3>The Complete Taxonomy</h3>
 
@@ -1492,7 +1570,7 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
   <thead><tr><th>Operation</th><th>\(\Delta B_{\text{tot}} + \Delta I_{\text{tot}}\)</th><th>Individual \(\Delta P_i\)</th><th>System \(\Delta P\)</th><th>Mechanism</th></tr></thead>
   <tbody>
     <tr><td><strong>Make</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for maker; others untouched</td><td class="num zero">\(0\)</td><td>Establishes pool at \(L\); personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Governed by \(\Delta P_t = -\Delta C + \Delta I_t\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Redistribution between participants</td></tr>
+    <tr><td><strong>Take</strong></td><td class="num zero">\(= 0\) (absolute)</td><td>Taker: \(-\Delta C + \Delta I_t\); others: \(\Delta I_i\); generically \(\neq 0\)</td><td class="num zero">\(0\) (absolute)</td><td>Taker pays to move the market; all others repriced by the gradient it creates</td></tr>
     <tr><td><strong>Unmake</strong></td><td class="num zero">\(= 0\)</td><td>\(0\) for every participant (exact)</td><td class="num zero">\(0\)</td><td>Personal \(I \to B\) conversion for all simultaneously</td></tr>
   </tbody>
 </table>
@@ -1510,7 +1588,7 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
   <strong>Truth, in Probabilize, is scarce. And scarcity is enforced by this law.</strong>
 </div>
 
-<p>The fundamental equation \(\Delta P_t = -\Delta C + \Delta I_t\) is the constitution of the individual taker at every Take. It says: your power changes by what you receive in repricing, net of what you pay. Financial neutrality (\(\Delta C = 0\)) does not produce power neutrality unless the repricing happens to cancel exactly. Power neutrality (\(\Delta P_t = 0\)) does not require financial neutrality — it requires that cost and repricing be precisely equal. These are distinct geometric conditions on the same trade, linked by the same cost function, enforced by the same conservation law that binds their sum to zero.</p>
+<p>Power flows toward those whose beliefs are confirmed by subsequent market activity. It flows entirely through Take — never through Make, never through Unmake — and it is governed at every step by \(\Delta P_t = -\Delta C + \Delta I_t\) for the transacting taker and \(\Delta P_i = \Delta I_i\) for every other participant. The taker pays to move the market; everyone else simply watches their positions revalued by the gradient the taker created. The conservation law closes because the total influence created by the taker's payment is exactly redistributed across all participants through repricing. No power is created. No power is destroyed. It flows.</p>
 
 <div class="ornament">◆ ◆ ◆</div>
 
@@ -1524,10 +1602,10 @@ $$\nabla C(\mathbf{q}) \cdot \Delta\mathbf{q} < C(\mathbf{q}') - C(\mathbf{q}) <
     <tr><td><strong>Balance</strong></td><td>Your current liquid economic capacity; limits buying; recoverable through liquidation</td></tr>
     <tr><td><strong>Market</strong></td><td>A capitalized, probabilistic question</td></tr>
     <tr><td><strong>Make</strong></td><td>Create a market; set prior probabilities; establish collective pool at \(L\); personal \(B \to I\) conversion</td></tr>
-    <tr><td><strong>Take</strong></td><td>Buy or sell a position; governed by \(\Delta P_t = -\Delta C + \Delta I_t\); system power conserved absolutely; individual power generically redistributed; \(\Delta C = 0\) is financially neutral but not power-neutral; \(\Delta P_t = 0\) requires \(\Delta C = \Delta I_t\) exactly</td></tr>
+    <tr><td><strong>Take</strong></td><td>Buy or sell a position; taker governed by \(\Delta P_t = -\Delta C + \Delta I_t\); all others by \(\Delta P_i = \Delta I_i\); system power conserved absolutely; \(\sum_i \Delta I_i = \Delta C\) closes the law</td></tr>
     <tr><td><strong>Unmake</strong></td><td>Close a market; personal \(I \to B\) conversion for all simultaneously — individual power conserved exactly for every participant; entire pool distributed</td></tr>
     <tr><td><strong>Influence</strong></td><td>Your share of the collective pool at current market prices; backed by maker's foundation and all taker net payments together; individually recoverable through liquidation</td></tr>
-    <tr><td><strong>Power</strong></td><td>\(P = B + I\) — conserved system-wide absolutely (\(\sum_i \Delta P_i = 0\) always); individual conservation holds at Make and Unmake exactly, and at Take only when \(\Delta C = \Delta I_t\)</td></tr>
+    <tr><td><strong>Power</strong></td><td>\(P = B + I\) — conserved system-wide absolutely; at Take, taker's \(\Delta P = -\Delta C + \Delta I_t\), all others' \(\Delta P = \Delta I\); flows toward beliefs confirmed by subsequent market activity</td></tr>
     <tr><td><strong>Governance</strong></td><td>Decisions sampled from market-implied probabilities, weighted by credibility</td></tr>
   </tbody>
 </table>

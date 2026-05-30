@@ -768,7 +768,7 @@ $$\Delta B_{\text{tot}} = +C(\mathbf{q}_m), \qquad \Delta I_{\text{tot}} = -C(\m
 
 <p>For the maker with residual influence \(C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m\):</p>
 
-$$\Delta I_A = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m]$$
+$$\Delta I_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}_m) - \nabla C(\mathbf{q}_m) \cdot \mathbf{q}_m]$$
 
 <p>For any existing taker \(s \neq t\) with position \(\mathbf{q}_s\):</p>
 
@@ -787,7 +787,7 @@ $$\sum_i \Delta P_i = \underbrace{(-\Delta C + \Delta I_t)}_{\text{taker}} + \un
   <thead><tr><th>Participant</th><th>\(\Delta B\)</th><th>\(\Delta I\)</th><th>\(\Delta P\)</th><th>Source of change</th></tr></thead>
   <tbody>
     <tr><td>Transacting taker</td><td class="num">\(-\Delta C\)</td><td class="num">\(\Delta I_t\)</td><td class="num">\(-\Delta C + \Delta I_t\)</td><td>Financial exchange and repricing of resulting position</td></tr>
-    <tr><td>Maker</td><td class="num zero">\(0\)</td><td class="num">\(\Delta I_A\)</td><td class="num">\(\Delta I_A\)</td><td>Pure repricing of residual claim</td></tr>
+    <tr><td>Maker</td><td class="num zero">\(0\)</td><td class="num">\(\Delta I_m\)</td><td class="num">\(\Delta I_m\)</td><td>Pure repricing of residual claim</td></tr>
     <tr><td>All other takers</td><td class="num zero">\(0\)</td><td class="num">\(\Delta I_s\)</td><td class="num">\(\Delta I_s\)</td><td>Pure repricing of held positions</td></tr>
     <tr><td><strong>System</strong></td><td class="num">\(-\Delta C\)</td><td class="num">\(+\Delta C\)</td><td class="num zero">\(0\)</td><td>Conservation</td></tr>
   </tbody>
@@ -1545,7 +1545,7 @@ $$\nabla C(\mathbf{q}_m) \cdot \mathbf{q}_t - \Delta C_t^{\text{net}} = \underbr
   $$\Delta P_i = \Delta I_i, \qquad \Delta B_i = 0$$
 </div>
 
-<p>For the maker: \(\Delta I_A = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]\).</p>
+<p>For the maker: \(\Delta I_m = [C(\mathbf{q}') - \nabla C(\mathbf{q}') \cdot \mathbf{q}'] - [C(\mathbf{q}) - \nabla C(\mathbf{q}) \cdot \mathbf{q}]\).</p>
 
 <p>For each existing taker \(s \neq t\): \(\Delta I_s = [\nabla C(\mathbf{q}') - \nabla C(\mathbf{q})] \cdot \mathbf{q}_s\).</p>
 
